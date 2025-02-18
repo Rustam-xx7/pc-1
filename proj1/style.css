@@ -149,3 +149,149 @@ nav{
     0%{transform: translate(-10%,-5%);}
     100%{transform: translate(10%,5%);}
 }
+
+#page2{
+    min-height: 100vh;
+    width:100%;
+    background-color: #EFEAE3;
+    padding:8vw 0vw;
+    position: relative;
+}
+.con{
+    white-space: nowrap;
+    display: inline-block;
+    animation-name:move;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#gola{
+    height:5vw;
+    width:5vw;
+    background-color: #FE330A;
+    border-radius: 50%;
+    display: inline-block;
+    margin:1vw 2vw;
+}
+
+#moving-text{
+    /* background-color: aqua; */
+    white-space: nowrap;
+    overflow-x: auto;
+}
+#moving-text::-webkit-scrollbar{
+    display:none;
+}
+#moving-text h1{
+    font-size:9vw;
+    /* background-color: aquamarine; */
+    display: inline-block;
+}
+
+@keyframes move{
+    0%{transform: translateX(0);}
+    100%{transform: translateX(-100%);}
+}
+
+#page2-bottom{
+    height:80vh;
+    width:100%;
+    /* background-color: aqua; */
+    padding: 4.5vw;
+    display: flex;
+    justify-content: space-between;
+}
+#page2-bottom h1{
+    font-size: 4vw;
+    width:60%;
+    line-height:4vw;
+    position:relative;
+    z-index: 9;
+    /* padding: 1vw 0vw; */
+}
+#page2-bottom-right{
+    width: 20vw;
+}
+#page2-bottom-right p{
+    font-size: 1em;
+    font-weight:100;
+    margin: 2vw 0vw;
+}
+#page2-bottom-right img{
+    width:100%;
+    border-radius: 5%;
+}
+
+#page2 #goo{
+    height:30vw;
+    width:30vw;
+    /* border-radius: 50%; */
+    /* background-color: #FE330A; */
+    position: absolute;
+    top:60%;
+    left:25%;
+}
+#page2 #goo-1{
+    height:100%;
+    width:100%;
+    border-radius: 50%;
+    background :linear-gradient(to top right,#FE330A,#fe5c16);
+    position: absolute;
+    z-index:1;
+    filter:blur(30px);
+}
+#page2 #goo-2{
+    height:30vw;
+    width:30vw;
+    border-radius: 50%;
+    background-color: #fd8c1b;
+    /* position: relative; */
+    filter:blur(25px);
+    animation-name:goo;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes goo{
+    0%{transform: translate(2vw,-2vw);}
+    100%{transform: translate(-2vw, 2vw);}
+}
+
+#page3{
+    min-height: 100vh;
+    width:100%;
+    background-color: #EFEAE3;
+    padding:4vw 0vw;
+}
+.elem{
+    height: 150px;
+    width:100%;
+    position:relative;
+    z-index:2;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    border-bottom:1px solid #bfbfbfa4;
+    overflow: hidden;
+}
+
+.elem h2{
+    font-size: 3vw;
+    padding: 0vw 2vw;
+    position: relative;
+    z-index:2;
+}
+.overlay{
+    height:100%;
+    width:100%;
+    background-color: #FF9831;
+    position:absolute;
+    top:-100%;
+    transition: all ease 0.4s;
+} 
+
+.elem:hover .overlay{
+    top:0;
+}
