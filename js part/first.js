@@ -1,3 +1,7 @@
+// till loop ...
+
+//basic ..
+{
 console.log("Welcome to reality!");
 // variables
 let age = 25;
@@ -47,8 +51,52 @@ console.log(" conditional statements ");
     console.log(mode);
     console.log(color);
 }
+}
 // tournary operator
 {
     let age=25;
     age >= 18 ? console.log(age,"addutlt") : console.log(age,"child");
+}
+// check 5 multiplyer or not.
+{
+    let num = prompt("Enter a number"); // a type of taking input from user.
+    if (num % 5 === 0){
+        console.log(num,"is a multiple of 5");
+    } else {
+        console.log(num,"is not a multiple of 5");
+    }
+}
+// for loop to calculate sum n 
+
+{
+    let n = prompt("Enter value of n .");
+    let sum = 0;
+    for(let i=1; i<=n; i++){
+        sum += i;
+    }
+    console.log("Sum of first",n ,"number is ", sum);
+}
+
+// for of loop , uses for strings and arrays.
+{
+    let str = "Rustam.";
+    let size = 0;
+    for(let char of str){ // here char is the iterator.
+        console.log("char is ",char);
+        size++;
+    }
+    console.log("Size of string is ",size);
+}
+
+// for in loop , uses for objects .
+
+{
+    let student = {
+        name: "rustam",
+        age: 21,
+        cgpa: 8,
+    }
+    for ( let key in student){
+        console.log("key is =", key , ",value is =", student[key]);
+    }
 }
