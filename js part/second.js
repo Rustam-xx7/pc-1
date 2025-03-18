@@ -41,41 +41,60 @@
 // Arrays .
 
 {
-    let arr = ["rustam", "bla","bla2","bla3","bla4"];
-    console.log(arr);
-    console.log("type of arr is = ", typeof arr);
-    arr[2] = "hello"; // array can change .
-    console.log(arr);  
-    // for loop 
-    for (let i =0 ; i < arr.length ; i++ ){
-        console.log(arr[i]);
-    }
-    // for of loop
-    for(let element of arr){
-        console.log(element.toUpperCase());
-    }
+    // let arr = ["rustam", "bla","bla2","bla3","bla4"];
+    // console.log(arr);
+    // console.log("type of arr is = ", typeof arr);
+    // arr[2] = "hello"; // array can change .
+    // console.log(arr);  
+    // // for loop 
+    // for (let i =0 ; i < arr.length ; i++ ){
+    //     console.log(arr[i]);
+    // }
+    // // for of loop
+    // for(let element of arr){
+    //     console.log(element.toUpperCase());
+    // }
 
-    // calculate a average marks from and array .
-    {
-        let marks = [ 85,97,44,37,76,60];
-        let sum =0;
-        for(let mark of marks){
-            console.log(mark);
-            sum += mark;
-        }
-        console.log(` The average is = ${sum/marks.length}`);
-    }
+    // // calculate a average marks from and array .
+    // {
+    //     let marks = [ 85,97,44,37,76,60];
+    //     let sum =0;
+    //     for(let mark of marks){
+    //         console.log(mark);
+    //         sum += mark;
+    //     }
+    //     console.log(` The average is = ${sum/marks.length}`);
+    // }
 
-    // apply 10% off and restore in array. 
-    {
-        let price = [250,645,300,900.50];
-        for (let i=0; i< price.length;i++){
-            console.log(`before offer price is : ${price[i]}`);
-            price[i] -= price[i] * 0.1;
-            console.log(`After 10% discount : ${price[i]}`);
-        }
-    }
+    // // apply 10% off and restore in array. 
+    // {
+    //     let price = [250,645,300,900.50];
+    //     for (let i=0; i< price.length;i++){
+    //         console.log(`before offer price is : ${price[i]}`);
+    //         price[i] -= price[i] * 0.1;
+    //         console.log(`After 10% discount : ${price[i]}`);
+    //     }
+    // }
 
     // array methods .
+    {
+        let arr = ["rustam", "bla","bla2","bla3","bla4"];
+        console.log(arr);
+        arr.push("Dipayan","guddu","laddu");// to add at the end .
+        console.log(arr);
+        let deleted = arr.pop();// to remove from the end .
+        console.log(arr);
+        console.log("deleted item is", deleted);
+        console.log(arr.toString()); // to convert the array to a string. it doesn't change the original array.
+        let arr1 = ["iron man","thor","hulk"];
+        let arr2 = ["super man","bat man "];
+        let arr3 = ["wong","doc strange"]
+        let heros = arr1.concat(arr2, arr3);
+        console.log(heros);
+        arr1.unshift("ant man"); // to add somethings to the first.
+        console.log(arr1);
+        console.log("Dleted by using shift is =",arr1.shift()); // to remove something from the first.
+    }                                                          
 }
+
 
