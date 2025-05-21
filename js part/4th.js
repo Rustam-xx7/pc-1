@@ -23,4 +23,3 @@ console.log(headings);
 let parahs = document.getElementsByTagName("p");
 console.log(parahs);
 }
- hello
