@@ -1,0 +1,26 @@
+#box{
+    margin:10px;
+    height:100px;
+    width:100px;
+    background-color:blanchedalmond;
+    border:1px solid black;
+}
+#box2{
+    margin:10px;
+    height:100px;
+    width:100px;
+    background-color:blanchedalmond;
+    border:1px solid black;
+}
+#btn3{
+    height:50px;
+    width:150px;
+}
+.dark{
+    background-color: black;
+    color: white;
+}
+.light{
+    background-color: white;
+    color: black;
+}
