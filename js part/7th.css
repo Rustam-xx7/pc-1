@@ -58,7 +58,7 @@ img{
 }
 .mag-container{
     margin:1rem 0;
-
+    box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.542);
 }
 #msg {
     font-size:1.5rem;
