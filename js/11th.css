@@ -1,0 +1,11 @@
+body{
+    background-color:rgb(84, 0, 42);
+    color:rgb(255, 228, 196);
+}
+
+button{
+    background-color:rgb(255, 228, 196);
+    color:rgb(84, 0, 42);
+    padding:1rem;
+    border-radius:0.5rem;
+}
