@@ -7,7 +7,7 @@ const genCompChoice = () => {
     const option = [ "paper" ,"rock", "scissors"];
     // math.random() * 3 , to get random number between 0 to 2 with decemal 
     // math.floor(math.random() * 5) , to get random integer number between 0 to 4.
-    const randIdx = Math.floor(Math.random() * 3);
+    const randIdx = Math.floor(Math.random() * 3); // 1 + 2 * math.random()
     return option[randIdx];
 }
 
