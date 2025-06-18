@@ -1,0 +1,19 @@
+nav, ul {
+    display:flex;
+}
+
+li{
+    list-style-type: none;
+    color:black;
+}
+
+ul{
+    gap:1.5rem;
+}
+
+nav{
+    background-color: blanchedalmond;
+    width:100%;
+    padding:1rem;
+}
+
