@@ -1,0 +1,1 @@
+# use of useCallback() and memo , to frizz the function and the components to avoid rerender even thoug props are not changing.
