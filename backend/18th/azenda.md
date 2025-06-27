@@ -1,0 +1,1 @@
+# How to handle Events in React app.

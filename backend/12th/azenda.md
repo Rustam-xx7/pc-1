@@ -1,6 +1,6 @@
-Telwind CSS
+# Telwind CSS
 
-to set up Tailwind CSS folow this following commands,
+- to set up Tailwind CSS folow this following commands,
 
 ### How to set up 
 

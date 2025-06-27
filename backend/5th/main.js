@@ -5,7 +5,7 @@ const shop = require('./routes/shop')
 
 const app = express();
 const port = 3000;
-app.use('/blog', blog);
+app.use('/blog', blog); 
 app.use('/shop', shop);
 
 app.use(express.static("public"));
