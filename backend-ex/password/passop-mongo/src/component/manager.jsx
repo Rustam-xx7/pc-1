@@ -10,24 +10,50 @@ const manager = () => {
   const [form, setform] = useState({ site: "", username: "", password: "" });
   const [passwordArray, setpasswordArray] = useState([]);
 
+  const getPassword = async () => {
+    let req = await fetch("http://localhost:3000/");
+    let passwords = await req.json();
+    console.log(passwords);
+    setpasswordArray(passwords);
+  };
+
   useEffect(() => {
-    let passwords = localStorage.getItem("passwords");
-    if (passwords) {
-      setpasswordArray(JSON.parse(passwords));
-    }
+    getPassword();
   }, []);
 
-  const savePassword = () => {
+  const savePassword = async () => {
     if (
       form.site.length > 0 &&
       form.username.length > 2 &&
       form.password.length > 3
     ) {
+
+      let id = form.id || uuidv4();
+
+    // Only delete if editing (form.id exists)
+    if (form.id) {
+      await fetch("http://localhost:3000/", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      });
+    }
+
+
+
       setpasswordArray([...passwordArray, { ...form, id: uuidv4() }]);
-      localStorage.setItem(
-        "passwords",
-        JSON.stringify([...passwordArray, { ...form, id: uuidv4() }])
-      );
+
+       await fetch("http://localhost:3000/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, id: uuidv4() }),
+      });
+
+      // localStorage.setItem(
+      //   "passwords",
+      //   JSON.stringify([...passwordArray, { ...form, id: uuidv4() }])
+      // );
+
       setform({ site: "", username: "", password: "" });
       toast("Successfully Saved !", {
         position: "top-right",
@@ -41,19 +67,25 @@ const manager = () => {
         transition: Bounce,
       });
     } else {
-      toast("password dosen't save !")
+      toast("password dosen't save !");
     }
   };
 
-  const deletePassword = (id) => {
+  const deletePassword = async (id) => {
     console.log("Delteting password of id", id);
     let c = confirm("DO you want to Delete ?");
     if (c) {
       setpasswordArray(passwordArray.filter((item) => item.id !== id));
-      localStorage.setItem(
-        "passwords",
-        JSON.stringify(passwordArray.filter((item) => item.id !== id))
-      );
+      // localStorage.setItem(
+      //   "passwords",
+      //   JSON.stringify(passwordArray.filter((item) => item.id !== id))
+      // );
+
+      let res = await fetch("http://localhost:3000/", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+      })
       toast("Successfully deleted !", {
         position: "top-right",
         autoClose: 5000,
@@ -68,14 +100,16 @@ const manager = () => {
     }
   };
 
-  const editPassword = (id) => {
+  const editPassword = async (id) => {
     console.log("Editing password of id", id);
     const item = passwordArray.find((item) => item.id === id);
     setpasswordArray(passwordArray.filter((item) => item.id !== id));
+
     setform({
       site: item.site,
       username: item.username,
       password: item.password,
+      id: id,
     });
     toast("Edit and don't forget to Save !", {
       position: "top-right",
@@ -139,7 +173,7 @@ const manager = () => {
       />
       <div className=" background absolute inset-0 -z-10 h-full w-full items-center  [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] "></div>
 
-      <div className="px-4 mx-4 md:px-0 md:container md:mx-auto md:max-w-4xl  bg-gray-800/50 h-fit text-white rounded-lg shadow-2xl shadow-green-500/30 my-4 py-2">
+      <div className="px-4 mx-4 md:px-0 md:container md:mx-auto md:max-w-4xl  bg-gray-800/50 h-fit text-white rounded-lg shadow-2xl shadow-green-500/30 my-4 mt-[7vh]">
         <h1 className="text-2xl font-bold text-center">
           <span className="text-green-400">&lt;</span>
           Pass
@@ -240,13 +274,7 @@ const manager = () => {
                       >
                         c
                       </button>
-                      {/* <animated-icons
-                        src="https://animatedicons.co/get-icon?name=copy&style=minimalistic&token=047dcf87-b84c-41c5-b2c6-5d33d94222ee"
-                        trigger="hover"
-                        attributes='{"variationThumbColour":"#536DFE","variationName":"Two Tone","variationNumber":2,"numberOfGroups":2,"backgroundIsGroup":false,"strokeWidth":1,"defaultColours":{"group-1":"#000000","group-2":"#536DFE","background":"#FFFFFF"}}'
-                        height="200"
-                        width="200"
-                      ></animated-icons> */}
+                      
                     </td>
                     <td className="py-2   text-center w-[25%] h-5">
                       {item.username}
@@ -260,7 +288,7 @@ const manager = () => {
                       </button>
                     </td>
                     <td className="py-2   text-center w-[25%] h-5">
-                      {item.password}
+                      {"*".repeat(item.password.length)}
                       <button
                         className="bg-green-400 rounded-full px-2 text-black font-bold mx-3 text-sm "
                         onClick={() => {
