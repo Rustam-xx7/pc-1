@@ -7,6 +7,7 @@ import GitHubProvider from "next-auth/providers/github";
 import mongoose from "mongoose";
 import User from "@/models/User";
 import Payment from "@/models/Payment";
+import connectDB from "@/db/connectDB";
 
 export const authoption = NextAuth({
   providers: [
@@ -35,30 +36,35 @@ export const authoption = NextAuth({
   ],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
+      let currentUser;
       if (account.provider == "github") {
         //Connect to the data base
         const client = await mongoose.connect(
           "mongodb://localhost:27017/project-GMaChai"
         );
         // Check if the user already exists in the database
-        // const emailToUse = email || user.email || profile?.email;
-        const currentUser = await User.findOne({ email: email });
-        // if (!emailToUse) {
-        //   // Optionally, handle the error or return false to deny sign-in
-        //   return false;
-      }
+        currentUser = await User.findOne({ email: user.email });
+      
       if (!currentUser) {
+
+        const emailToUse = user.email;
+        const usernameToUse = emailToUse ? emailToUse.split("@")[0] : null;
+        if (!emailToUse || !usernameToUse) {
+          console.error("Email or username missing");
+          return false;
+        }
+
         //Create a new User
-        const newUser = new User.create({
-          email: email,
-          username: email.split("@")[0],
+        const newUser = await User.create({
+          email: emailToUse,
+          username: usernameToUse,
         });
-        await newUser.save();
         user.name = newUser.username;
       } else {
         user.name = currentUser.username;
       }
-      return true;
+      return true ;
+      }
     },
   },
   async session({ session, user, token }) {

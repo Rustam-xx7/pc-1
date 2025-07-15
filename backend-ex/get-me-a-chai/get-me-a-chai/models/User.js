@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 const {Schema , model } = mongoose;
 
 const UserSchema = new Schema({
-    emain: { type: String, required: true },
-    name: {type: String},
+    email:{ type: String, required: true },
     username: { type: String, required: true },
+    name: {type: String},
     profilepic: { type: String},
     coverpic: { type: String},
     createdAt: { type: Date, default: Date.now},
@@ -12,4 +12,8 @@ const UserSchema = new Schema({
 })
 
 
-export default mongoose.models.User || model("User", UserSchema) ;
+// export default mongoose.models.User || model("User", UserSchema) ;
+// module.exports = mongoose.model("User", UserSchema);
+const User = mongoose.models.User || mongoose.model('User', UserSchema);
+
+module.exports = User;
