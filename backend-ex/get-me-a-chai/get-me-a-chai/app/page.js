@@ -3,7 +3,6 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-    
       <div className="text-white ">
         <div className="flex justify-center text-white  min-h-[44vh] flex-col items-center gap-6 my-2">
           <div className="font-bold text-5xl">Bye Me a Chai</div>
@@ -14,7 +13,8 @@ export default function Home() {
           <div className="gap-6 flex">
             <button
               type="button"
-              className="text-white bg-gradient-to-br to-[#2C1667] from-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              className="text-white bg-gradient-to-br to-[#2C1667] from-blue-700 hover:bg-gradient-to-bl focus:ring-4 focus:outline-
+              none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             >
               Start Here
             </button>
@@ -28,7 +28,9 @@ export default function Home() {
         </div>
         <div className="bg-white h-1 opacity-5"></div>
         <div className="flex flex-col justify-center items-center gap-4 my-12 mb-16 container mx-auto ">
-          <h2 className="text-2xl mb-6  font-bold">Your Fans can bye you a Chai !</h2>
+          <h2 className="text-2xl mb-6  font-bold">
+            Your Fans can bye you a Chai !
+          </h2>
           <div className="flex justify-around w-full ">
             <div className="space-y-3 flex flex-col justify-center items-center">
               <img
@@ -62,7 +64,16 @@ export default function Home() {
         <div className="bg-white h-1 opacity-5"></div>
         <div className="flex flex-col justify-center items-center gap-4 my-12 mb-16 container mx-auto  ">
           <h2 className="text-2xl mb-6  font-bold ">Learn More About Us !</h2>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/erjwCQ-UZyw?si=r8CAUNncAL5Xu3WC" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/erjwCQ-UZyw?si=r8CAUNncAL5Xu3WC"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
     </>

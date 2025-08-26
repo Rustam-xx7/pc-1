@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Savory Bites Restaurant</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+  <link href="./css/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f5f2;
+      color: #333;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+    .menu-header {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .menu-item {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    .menu-category-nav .active {
+      color: #d97706; /* amber-600 */
+      border-bottom: 2px solid #d97706;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="home.html" class="text-2xl font-bold text-amber-800">Savory<span class="text-amber-500">Bites</span></a>
+        </div>
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="home.html" class="text-gray-700 font-medium hover:text-amber-500 transition duration-300">Home</a>
+          <a href="menu.html" class="text-amber-800 font-medium hover:text-amber-500 transition duration-300">Menu</a>
+          <a href="contact.html" class="text-gray-700 font-medium hover:text-amber-500 transition duration-300">Contact</a>
+          <a href="#" class="bg-amber-500 text-white px-6 py-2 rounded-full font-medium hover:bg-amber-600 transition duration-300">Book a Table</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button class="mobile-menu-button focus:outline-none">
+            <span class="material-symbols-outlined text-3xl text-gray-700">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden">
+      <a href="home.html" class="block py-3 px-4 text-sm hover:bg-amber-50 transition duration-300">Home</a>
+      <a href="menu.html" class="block py-3 px-4 text-sm hover:bg-amber-50 transition duration-300">Menu</a>
+      <a href="contact.html" class="block py-3 px-4 text-sm hover:bg-amber-50 transition duration-300">Contact</a>
+      <a href="#" class="block py-3 px-4 text-sm hover:bg-amber-50 transition duration-300">Book a Table</a>
+    </div>
+  </nav>
+
+  <!-- Menu Header -->
+  <section class="menu-header py-20 text-center text-white">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Our Menu</h1>
+      <p class="text-xl max-w-2xl mx-auto">Discover our carefully crafted dishes made with the finest ingredients and culinary expertise</p>
+    </div>
+  </section>
+
+  <!-- Menu Categories Navigation -->
+  <section class="bg-white py-6 shadow-md sticky top-16 z-40">
+    <div class="container mx-auto px-4">
+      <div class="menu-category-nav flex justify-center space-x-2 md:space-x-8 overflow-x-auto pb-2">
+        <a href="#starters" class="px-4 py-2 text-gray-700 font-medium hover:text-amber-600 transition duration-300 whitespace-nowrap active">Starters</a>
+        <a href="#main-courses" class="px-4 py-2 text-gray-700 font-medium hover:text-amber-600 transition duration-300 whitespace-nowrap">Main Courses</a>
+        <a href="#seafood" class="px-4 py-2 text-gray-700 font-medium hover:text-amber-600 transition duration-300 whitespace-nowrap">Seafood</a>
+        <a href="#vegetarian" class="px-4 py-2 text-gray-700 font-medium hover:text-amber-600 transition duration-300 whitespace-nowrap">Vegetarian</a>
+        <a href="#desserts" class="px-4 py-2 text-gray-700 font-medium hover:text-amber-600 transition duration-300 whitespace-nowrap">Desserts</a>
+        <a href="#beverages" class="px-4 py-2 text-gray-700 font-medium hover:text-amber-600 transition duration-300 whitespace-nowrap">Beverages</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Content -->
+  <section class="py-12">
+    <div class="container mx-auto px-4">
+      <!-- Starters -->
+      <div id="starters" class="mb-16">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-amber-800 mb-2">Starters</h2>
+          <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Starter Item 1 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Bruschetta</h3>
+                <p class="text-gray-600 mt-2">Grilled bread rubbed with garlic and topped with olive oil, salt, diced tomatoes, and fresh basil.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$9.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full mr-2">Vegetarian</span>
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Popular</span>
+            </div>
+          </div>
+          <!-- Starter Item 2 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Calamari Fritti</h3>
+                <p class="text-gray-600 mt-2">Crispy fried calamari served with lemon wedges and a side of marinara sauce.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$12.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Seafood</span>
+            </div>
+          </div>
+          <!-- Starter Item 3 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Mushroom Arancini</h3>
+                <p class="text-gray-600 mt-2">Crispy risotto balls stuffed with wild mushrooms, mozzarella, and herbs, served with truffle aioli.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$11.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">Vegetarian</span>
+            </div>
+          </div>
+          <!-- Starter Item 4 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Prosciutto & Melon</h3>
+                <p class="text-gray-600 mt-2">Thinly sliced prosciutto paired with sweet cantaloupe melon and a balsamic glaze.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$14.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Chef's Special</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Courses -->
+      <div id="main-courses" class="mb-16">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-amber-800 mb-2">Main Courses</h2>
+          <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Main Course Item 1 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Filet Mignon</h3>
+                <p class="text-gray-600 mt-2">8oz premium cut beef tenderloin, cooked to your preference, served with truffle mashed potatoes and seasonal vegetables.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$32.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-2">Chef's Special</span>
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Popular</span>
+            </div>
+          </div>
+          <!-- Main Course Item 2 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Chicken Marsala</h3>
+                <p class="text-gray-600 mt-2">Pan-seared chicken breast in a rich Marsala wine sauce with mushrooms, served with garlic parmesan risotto.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$24.99</span>
+            </div>
+          </div>
+          <!-- Main Course Item 3 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Lamb Chops</h3>
+                <p class="text-gray-600 mt-2">Herb-crusted lamb chops with mint jelly, roasted fingerling potatoes, and glazed carrots.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$29.99</span>
+            </div>
+          </div>
+          <!-- Main Course Item 4 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Duck Confit</h3>
+                <p class="text-gray-600 mt-2">Slow-cooked duck leg with crispy skin, served with cherry reduction, wild rice pilaf, and braised greens.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$27.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Seasonal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seafood -->
+      <div id="seafood" class="mb-16">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-amber-800 mb-2">Seafood</h2>
+          <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Seafood Item 1 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Grilled Salmon</h3>
+                <p class="text-gray-600 mt-2">Fresh Atlantic salmon, grilled to perfection with lemon herb butter, served with asparagus and quinoa pilaf.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$24.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Popular</span>
+            </div>
+          </div>
+          <!-- Seafood Item 2 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Lobster Ravioli</h3>
+                <p class="text-gray-600 mt-2">Handmade ravioli stuffed with lobster meat and ricotta cheese, in a saffron cream sauce.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$28.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Chef's Special</span>
+            </div>
+          </div>
+          <!-- Seafood Item 3 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Seared Scallops</h3>
+                <p class="text-gray-600 mt-2">Pan-seared sea scallops with brown butter sauce, cauliflower puree, and crispy pancetta.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$26.99</span>
+            </div>
+          </div>
+          <!-- Seafood Item 4 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Seafood Paella</h3>
+                <p class="text-gray-600 mt-2">Traditional Spanish rice dish with shrimp, mussels, clams, and calamari, flavored with saffron and herbs.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$29.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Serves Two</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vegetarian -->
+      <div id="vegetarian" class="mb-16">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-amber-800 mb-2">Vegetarian</h2>
+          <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Vegetarian Item 1 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Wild Mushroom Risotto</h3>
+                <p class="text-gray-600 mt-2">Creamy Arborio rice with assorted wild mushrooms, white wine, parmesan, and fresh herbs.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$19.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full mr-2">Vegetarian</span>
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Gluten-Free</span>
+            </div>
+          </div>
+          <!-- Vegetarian Item 2 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Eggplant Parmesan</h3>
+                <p class="text-gray-600 mt-2">Layers of breaded eggplant, marinara sauce, and melted mozzarella and parmesan cheeses, served with spaghetti.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$18.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">Vegetarian</span>
+            </div>
+          </div>
+          <!-- Vegetarian Item 3 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Vegetable Wellington</h3>
+                <p class="text-gray-600 mt-2">Roasted vegetables and goat cheese wrapped in puff pastry, served with red pepper coulis and mixed greens.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$21.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full">Vegetarian</span>
+            </div>
+          </div>
+          <!-- Vegetarian Item 4 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Stuffed Bell Peppers</h3>
+                <p class="text-gray-600 mt-2">Bell peppers filled with quinoa, black beans, corn, and spices, topped with avocado crema and cilantro.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$17.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-amber-100 text-amber-800 text-xs px-2 py-1 rounded-full mr-2">Vegetarian</span>
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Vegan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desserts -->
+      <div id="desserts" class="mb-16">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-amber-800 mb-2">Desserts</h2>
+          <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Dessert Item 1 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Chocolate Lava Cake</h3>
+                <p class="text-gray-600 mt-2">Decadent chocolate cake with a molten center, served with vanilla bean ice cream and fresh berries.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$12.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Popular</span>
+            </div>
+          </div>
+          <!-- Dessert Item 2 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Tiramisu</h3>
+                <p class="text-gray-600 mt-2">Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream, dusted with cocoa.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$10.99</span>
+            </div>
+          </div>
+          <!-- Dessert Item 3 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Crème Brûlée</h3>
+                <p class="text-gray-600 mt-2">Rich vanilla custard with a caramelized sugar crust, garnished with fresh seasonal berries.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$9.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Gluten-Free</span>
+            </div>
+          </div>
+          <!-- Dessert Item 4 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Apple Tart Tatin</h3>
+                <p class="text-gray-600 mt-2">Caramelized apple tart served warm with cinnamon ice cream and caramel sauce.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$11.99</span>
+            </div>
+            <div class="mt-4">
+              <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Chef's Special</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beverages -->
+      <div id="beverages">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-amber-800 mb-2">Beverages</h2>
+          <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Beverage Item 1 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Signature Cocktails</h3>
+                <p class="text-gray-600 mt-2">Ask your server about our seasonal craft cocktails made with premium spirits and fresh ingredients.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$12-16</span>
+            </div>
+          </div>
+          <!-- Beverage Item 2 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Wine Selection</h3>
+                <p class="text-gray-600 mt-2">Extensive collection of domestic and imported wines. Available by the glass or bottle.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">Varies</span>
+            </div>
+          </div>
+          <!-- Beverage Item 3 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Craft Beers</h3>
+                <p class="text-gray-600 mt-2">Selection of local and imported craft beers on tap and bottled.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$6-10</span>
+            </div>
+          </div>
+          <!-- Beverage Item 4 -->
+          <div class="menu-item bg-white p-6 rounded-lg shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800">Non-Alcoholic Options</h3>
+                <p class="text-gray-600 mt-2">Artisanal sodas, fresh-squeezed juices, specialty coffee, and herbal teas.</p>
+              </div>
+              <span class="text-amber-500 font-bold text-xl">$4-8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Dietary Needs -->
+  <section class="py-12 bg-amber-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-amber-800 mb-6">Special Dietary Needs</h2>
+      <p class="text-gray-700 max-w-3xl mx-auto mb-8">We are happy to accommodate special dietary requirements. Please inform your server of any allergies or restrictions, and our chefs will prepare a suitable alternative when possible.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <span class="inline-block bg-amber-100 text-amber-800 px-4 py-2 rounded-full">Vegetarian Options</span>
+        <span class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full">Vegan Options</span>
+        <span class="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Gluten-Free Options</span>
+        <span class="inline-block bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Dairy-Free Options</span>
+        <span class="inline-block bg-red-100 text-red-800 px-4 py-2 rounded-full">Nut-Free Options</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation CTA -->
+  <section class="py-16 bg-amber-800 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Experience Our Cuisine?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Join us for an unforgettable dining experience. Reserve your table today!</p>
+      <a href="#" class="bg-white text-amber-800 px-8 py-3 rounded-full font-medium hover:bg-amber-100 transition duration-300">Book a Reservation</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Savory<span class="text-amber-500">Bites</span></h3>
+          <p class="text-gray-400">Elevating dining to an art form since 2010. Join us for an unforgettable culinary journey.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Hours</h4>
+          <ul class="text-gray-400">
+            <li class="mb-2">Monday - Thursday: 11am - 10pm</li>
+            <li class="mb-2">Friday - Saturday: 11am - 11pm</li>
+            <li>Sunday: 10am - 9pm</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Contact</h4>
+          <ul class="text-gray-400">
+            <li class="mb-2">123 Gourmet Avenue</li>
+            <li class="mb-2">Culinary District, CA 90210</li>
+            <li class="mb-2">Phone: (555) 123-4567</li>
+            <li>Email: info@savorybites.com</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <span class="material-symbols-outlined">facebook</span>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <span class="material-symbols-outlined">instagram</span>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <span class="material-symbols-outlined">twitter</span>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <span class="material-symbols-outlined">youtube</span>
+            </a>
+          </div>
+          <div class="mt-6">
+            <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+            <form class="flex">
+              <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-900">
+              <button type="submit" class="bg-amber-500 px-4 py-2 rounded-r-md hover:bg-amber-600 transition duration-300">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+        <p>&copy; 2023 Savory Bites. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for menu category navigation
+    document.querySelectorAll('.menu-category-nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove active class from all links
+        document.querySelectorAll('.menu-category-nav a').forEach(a => {
+          a.classList.remove('active');
+        });
+        
+        // Add active class to clicked link
+        this.classList.add('active');
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        window.scrollTo({
+          top: targetElement.offsetTop - 150,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Highlight active menu category based on scroll position
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      
+      document.querySelectorAll('section > div > div[id]').forEach(section => {
+        const sectionTop = section.offsetTop - 200;
+        const sectionBottom = sectionTop + section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          const id = section.getAttribute('id');
+          document.querySelectorAll('.menu-category-nav a').forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === `#${id}`) {
+              a.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

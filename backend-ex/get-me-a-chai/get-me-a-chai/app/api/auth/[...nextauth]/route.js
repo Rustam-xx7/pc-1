@@ -39,38 +39,40 @@ export const authoption = NextAuth({
       let currentUser;
       if (account.provider == "github") {
         //Connect to the data base
-        const client = await mongoose.connect(
-          "mongodb://localhost:27017/project-GMaChai"
-        );
+        await connectDB();
+
+        // const client = await mongoose.connect(
+        //   "mongodb://localhost:27017/project-GMaChai"
+        // );
+
         // Check if the user already exists in the database
         currentUser = await User.findOne({ email: user.email });
-      
-      if (!currentUser) {
-
-        const emailToUse = user.email;
-        const usernameToUse = emailToUse ? emailToUse.split("@")[0] : null;
-        if (!emailToUse || !usernameToUse) {
-          console.error("Email or username missing");
-          return false;
         }
 
-        //Create a new User
-        const newUser = await User.create({
-          email: emailToUse,
-          username: usernameToUse,
-        });
-        user.name = newUser.username;
-      } else {
-        user.name = currentUser.username;
-      }
-      return true ;
-      }
+        if (!currentUser) {
+          const emailToUse = user.email;
+          const usernameToUse = emailToUse ? emailToUse.split("@")[0] : null;
+          if (!emailToUse || !usernameToUse) {
+            console.error("Email or username missing");
+            return false;
+          }
+
+          //Create a new User
+          const newUser = await User.create({
+            email: emailToUse,
+            username: usernameToUse,
+          });
+        } else {
+        }
+        return true;
+      
     },
-  },
-  async session({ session, user, token }) {
-    const dbUser = await User.findOne({ email: session.user.email });
-    session.user.name = dbUser.username;
-    return session;
+    async session({ session, user, token }) {
+      const dbUser = await User.findOne({ email: session.user.email });
+      console.log(dbUser);
+      session.user.name = dbUser.username;
+      return session;
+    },
   },
 });
 

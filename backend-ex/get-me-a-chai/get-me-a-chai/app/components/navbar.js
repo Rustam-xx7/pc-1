@@ -31,7 +31,7 @@ const navbar = () => {
                 
                 <svg
                   className="w-2.5 h-2.5 ms-3"
-                  ariaHidden="true"
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 10 6"
@@ -51,7 +51,7 @@ const navbar = () => {
               >
                 <ul
                   className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                  ariaLabelledby="dropdownDefaultButton"
+                  aria-labelledby="dropdownDefaultButton"
                 >
                   <li>
                     <Link
@@ -67,6 +67,14 @@ const navbar = () => {
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Settings
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={`/${session.user.name}`}
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Your Page
                     </Link>
                   </li>
                   <li>

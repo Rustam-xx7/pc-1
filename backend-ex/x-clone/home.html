@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savory Bites - Fine Dining Restaurant</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+  <link href="./css/output.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f5f2;
+      color: #333;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+    .hero-section {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+    }
+    .menu-item img {
+      transition: transform 0.3s ease;
+    }
+    .menu-item:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <a href="home.html" class="text-2xl font-bold text-amber-800">Savory<span class="text-amber-500">Bites</span></a>
+        </div>
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="home.html" class="text-amber-800 font-medium hover:text-amber-500 transition duration-300">Home</a>
+          <a href="menu.html" class="text-gray-700 font-medium hover:text-amber-500 transition duration-300">Menu</a>
+          <a href="contact.html" class="text-gray-700 font-medium hover:text-amber-500 transition duration-300">Contact</a>
+          <a href="#" class="bg-amber-500 text-white px-6 py-2 rounded-full font-medium hover:bg-amber-600 transition duration-300">Book a Table</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button class="mobile-menu-button focus:outline-none">
+            <span class="material-symbols-outlined text-3xl text-gray-700">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden">
+      <a href="home.html" class="block py-3 px-4 text-sm hover:bg-amber-50 transition duration-300">Home</a>
+      <a href="menu.html" class="block py-3 px-4 text-sm hover:bg-amber-50 transition duration-300">Menu</a>
+      <a href="contact.html" class="block py-3 px-4 text-sm hover:bg-amber-50 transition duration-300">Contact</a>
+      <a href="#" class="block py-3 px-4 text-sm hover:bg-amber-50 transition duration-300">Book a Table</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section flex items-center justify-center text-center text-white">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Exquisite Dining Experience</h1>
+      <p class="text-xl md:text-2xl mb-8">Savor the finest culinary creations in an elegant atmosphere</p>
+      <div class="flex flex-col md:flex-row justify-center gap-4">
+        <a href="menu.html" class="bg-amber-500 text-white px-8 py-3 rounded-full font-medium hover:bg-amber-600 transition duration-300">View Menu</a>
+        <a href="contact.html" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-amber-800 transition duration-300">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+          <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restaurant Interior" class="rounded-lg shadow-lg">
+        </div>
+        <div class="md:w-1/2 md:pl-12">
+          <h2 class="text-3xl font-bold mb-6 text-amber-800">Our Story</h2>
+          <p class="text-gray-700 mb-6">Founded in 2010, Savory Bites has been serving exquisite cuisine made from the freshest ingredients. Our chefs combine traditional techniques with innovative approaches to create unforgettable dining experiences.</p>
+          <p class="text-gray-700 mb-6">We believe that great food brings people together, and we're committed to providing a warm, inviting atmosphere where memories are made and cherished.</p>
+          <a href="#" class="text-amber-500 font-medium hover:text-amber-600 transition duration-300 flex items-center">
+            Learn more about us
+            <span class="material-symbols-outlined ml-2">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Menu Items -->
+  <section class="py-16 bg-amber-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-amber-800">Featured Dishes</h2>
+        <p class="text-gray-700 mt-4">Explore our chef's special selections</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Menu Item 1 -->
+        <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80" alt="Grilled Salmon" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-amber-800">Grilled Salmon</h3>
+            <p class="text-gray-600 mt-2">Fresh Atlantic salmon, grilled to perfection with lemon herb butter and seasonal vegetables.</p>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="text-amber-500 font-bold">$24.99</span>
+              <a href="menu.html" class="text-amber-800 hover:text-amber-500 transition duration-300">View Details</a>
+            </div>
+          </div>
+        </div>
+        <!-- Menu Item 2 -->
+        <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1560611588-163f49a6cbe9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Filet Mignon" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-amber-800">Filet Mignon</h3>
+            <p class="text-gray-600 mt-2">Premium cut beef tenderloin, cooked to your preference, served with truffle mashed potatoes.</p>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="text-amber-500 font-bold">$32.99</span>
+              <a href="menu.html" class="text-amber-800 hover:text-amber-500 transition duration-300">View Details</a>
+            </div>
+          </div>
+        </div>
+        <!-- Menu Item 3 -->
+        <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Chocolate Lava Cake" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-amber-800">Chocolate Lava Cake</h3>
+            <p class="text-gray-600 mt-2">Decadent chocolate cake with a molten center, served with vanilla bean ice cream.</p>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="text-amber-500 font-bold">$12.99</span>
+              <a href="menu.html" class="text-amber-800 hover:text-amber-500 transition duration-300">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href="menu.html" class="bg-amber-500 text-white px-8 py-3 rounded-full font-medium hover:bg-amber-600 transition duration-300">View Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-amber-800">What Our Guests Say</h2>
+        <p class="text-gray-700 mt-4">Hear from our satisfied customers</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-amber-50 p-6 rounded-lg shadow">
+          <div class="flex items-center mb-4">
+            <div class="text-amber-500">
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4">"The food was absolutely amazing! Every dish was prepared with such attention to detail. The service was impeccable, and the atmosphere was perfect for our anniversary dinner."</p>
+          <div class="flex items-center">
+            <div class="mr-4">
+              <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Customer" class="w-12 h-12 rounded-full">
+            </div>
+            <div>
+              <h4 class="font-bold text-amber-800">Sarah Johnson</h4>
+              <p class="text-gray-600 text-sm">Visited April 2023</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="bg-amber-50 p-6 rounded-lg shadow">
+          <div class="flex items-center mb-4">
+            <div class="text-amber-500">
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4">"I've dined at many restaurants, but Savory Bites stands out for its exceptional cuisine and warm hospitality. The chef's tasting menu was a culinary journey I won't forget."</p>
+          <div class="flex items-center">
+            <div class="mr-4">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="w-12 h-12 rounded-full">
+            </div>
+            <div>
+              <h4 class="font-bold text-amber-800">Michael Thompson</h4>
+              <p class="text-gray-600 text-sm">Visited June 2023</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="bg-amber-50 p-6 rounded-lg shadow">
+          <div class="flex items-center mb-4">
+            <div class="text-amber-500">
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star_half</span>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4">"The ambiance is elegant yet comfortable, and the staff made us feel welcome from the moment we arrived. The wine pairing suggestions were perfect with our meal."</p>
+          <div class="flex items-center">
+            <div class="mr-4">
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Customer" class="w-12 h-12 rounded-full">
+            </div>
+            <div>
+              <h4 class="font-bold text-amber-800">Emily Rodriguez</h4>
+              <p class="text-gray-600 text-sm">Visited May 2023</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation CTA -->
+  <section class="py-16 bg-amber-800 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Reserve Your Table Today</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Experience the perfect blend of exquisite cuisine, elegant atmosphere, and impeccable service.</p>
+      <a href="#" class="bg-white text-amber-800 px-8 py-3 rounded-full font-medium hover:bg-amber-100 transition duration-300">Book a Reservation</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Savory<span class="text-amber-500">Bites</span></h3>
+          <p class="text-gray-400">Elevating dining to an art form since 2010. Join us for an unforgettable culinary journey.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Hours</h4>
+          <ul class="text-gray-400">
+            <li class="mb-2">Monday - Thursday: 11am - 10pm</li>
+            <li class="mb-2">Friday - Saturday: 11am - 11pm</li>
+            <li>Sunday: 10am - 9pm</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Contact</h4>
+          <ul class="text-gray-400">
+            <li class="mb-2">123 Gourmet Avenue</li>
+            <li class="mb-2">Culinary District, CA 90210</li>
+            <li class="mb-2">Phone: (555) 123-4567</li>
+            <li>Email: info@savorybites.com</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Follow Us</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <span class="material-symbols-outlined">facebook</span>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <span class="material-symbols-outlined">instagram</span>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <span class="material-symbols-outlined">twitter</span>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-amber-500 transition duration-300">
+              <span class="material-symbols-outlined">youtube</span>
+            </a>
+          </div>
+          <div class="mt-6">
+            <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+            <form class="flex">
+              <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-md focus:outline-none text-gray-900">
+              <button type="submit" class="bg-amber-500 px-4 py-2 rounded-r-md hover:bg-amber-600 transition duration-300">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+        <p>&copy; 2023 Savory Bites. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

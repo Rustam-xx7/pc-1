@@ -1,0 +1,3 @@
+- Oi option gulor modhhe konta nebo bujhte parchi na , choose kore dao .
+- Link pathano mana chilo na . 
+- ar chobi pathanou 😁 !
