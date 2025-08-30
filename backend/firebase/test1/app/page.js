@@ -7,6 +7,16 @@ import { database } from "./firebaseConfig";
 import { useState, useEffect } from "react";
 import React from "react";
 
+// Imports for authentication
+import Login from "./login";
+import { getAuth , onAuthStateChanged } from "firebase/auth";
+import { app } from "./firebaseConfig";
+import { useRouter } from "next/navigation";
+import {signInWithPopup, GoogleAuthProvider, FacebookAuthProvider} from "firebase/auth";
+import Dashboard from "./dashboard/page";
+
+
+
 // storing data to foirebase firestore
 async function addDataToFireStore(name, email, message) {
   try {
@@ -40,6 +50,11 @@ export default function Home() {
   const [fetchedData, setFetchedData] = useState([]); // for firestore database
   const [users, setUsers] = useState([]); // for real time database
 
+  // authentication 
+  const router = useRouter();
+  const auth = getAuth(app);
+  const [guser, setGuser] = useState(null);
+
   useEffect(() => {
     // fetching data from firestore database
     async function fetchData() {
@@ -64,6 +79,15 @@ export default function Home() {
     })
   }, []);
 
+  useEffect(() => {
+    // checking user is logged in or not
+    onAuthStateChanged(auth, (user) => {
+      if(user) {
+        router.push('/dashboard');
+      }
+    });
+  }, [auth, router]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const isSuccess = await addDataToFireStore(name, email, message);
@@ -77,6 +101,28 @@ export default function Home() {
     setFetchedData(data);
     } else {
       alert("Failed to add data.");
+    }
+  };
+
+  // Google login handler
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      // User will be redirected by onAuthStateChanged
+    } catch (error) {
+      alert("Google login failed: " + error.message);
+    }
+  };
+
+  // Facebook login handler
+  const handleFacebookLogin = async () => {
+    const provider = new FacebookAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      // User will be redirected by onAuthStateChanged
+    } catch (error) {
+      alert("Facebook login failed: " + error.message);
     }
   };
 
@@ -100,7 +146,9 @@ export default function Home() {
         }
       `}</style>
       <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+        
         <h1 className="text-2xl font-bold text-purple-300">Firebase testing</h1>
+        
         <div className=" fireStoreDB flex gap-4 justify-center items-center">
           <div className="showData h-64 w-96 flex flex-col items-center justify-start gap-2 p-6 border border-gray-500 rounded-xl shadow-lg shadow-purple-500/30 overflow-y-auto">
             {fetchedData.map((data) => (
@@ -203,6 +251,21 @@ export default function Home() {
             </div>
           </form>
         </div>
+        <div className="flex gap-4 justify-center mt-8">
+          <button
+            onClick={handleGoogleLogin}
+            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-300"
+          >
+            Login with Google
+          </button>
+          <button
+            onClick={handleFacebookLogin}
+            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
+          >
+            Login with Facebook
+          </button>
+        </div>
+        <Login />
       </div>
     </>
   );
