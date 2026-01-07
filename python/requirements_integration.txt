@@ -1,0 +1,21 @@
+# Requirements for Hand Gesture Recognition System
+# Install with: pip install -r requirements_integration.txt
+
+# Upgrade pip first: pip install --upgrade pip setuptools wheel
+
+# Computer Vision
+opencv-python
+mediapipe
+
+# Web Framework
+flask
+flask-cors
+requests
+
+# Machine Learning (use compatible versions)
+numpy
+scikit-learn
+joblib
+
+# Image Processing
+Pillow
