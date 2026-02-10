@@ -16,7 +16,7 @@ function App() {
         ></motion.div>
         <div>
           <motion.div
-            className="w-50 h-50 bg-blue-500 rounded-xl border border-white border-2"
+            className="w-50 h-50 bg-blue-500 rounded-xl border-2 border-white"
             initial={{ rotate: 0, x: 20, scale: 1 }}
             animate={{
               rotate: [0, 360, 0],
