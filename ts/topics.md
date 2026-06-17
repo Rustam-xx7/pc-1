@@ -1,0 +1,30 @@
+- basic types
+- primitive types and referance type
+- array
+- tuples : array but predefined
+- enum : basically objects that usually give some predefined properties
+- any, unknown , void , undefined ,never types
+- type inference & type annotations 
+- Introduction to Interfaces & Type Aliases
+- extend interfaces
+- type aliases
+- intersection types
+- classes and objects
+- constructor
+- access modifiers (public , private , protected)
+- readonly properties
+- optional properties
+- parameter properties
+- getters and setters
+- static members
+- abstract class
+- function types
+- optional and default parameters
+- Rest parameters 
+- overloading
+- generic functions
+- generic interfaces
+- generic classes 
+- modules
+- type assertion
+- type guards
