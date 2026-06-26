@@ -5,12 +5,7 @@ public class q2 {
         S1.age= 22;
         S1.name = "John";
         S1.nos = 5;
-        System.out.println("Student ID: " + S1.id);
-        System.out.println("Student Age: " + S1.age);
-        System.out.println("Student Name: " + S1.name);
-        System.out.println("Number of Subjects: " + S1.nos);
-        S1.study();
-        S1.sleep();
+        
 
         // Parameterized Constructor
         q2Class S2 = new q2Class(2, "Alice", 20, 6);
