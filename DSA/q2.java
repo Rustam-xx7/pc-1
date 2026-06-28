@@ -1,28 +1,41 @@
 public class q2 {
     public static void main(String[] args) {
-        q2Class S1 = new q2Class();
-        S1.id = 1;
-        S1.setAge(22);
-        S1.name = "John";
-        S1.nos = 5;
-        
+        Student s = new Student("John", 20, "Computer Science");
+        s.showDetails();
+        s.study();
+    }
+}
 
-        // Parameterized Constructor
-        q2Class S2 = new q2Class(2, "Alice", 20, 6 , " lucy ");
-        System.out.println("Student ID: " + S2.id);
-        System.out.println("Student Age: " + S2.getAge());
-        System.out.println("Student Name: " + S2.name);
-        System.out.println("Number of Subjects: " + S2.nos);
-        S2.study();
-        S2.sleep(); 
+class Person {
+    String name;
+    int age;
 
-        // Copy Constructor
-        // q2Class S3 = new q2Class(S2);
-        // System.out.println("Student ID: " + S3.id);
-        // System.out.println("Student Age: " + S3.age);
-        // System.out.println("Student Name: " + S3.name);
-        // System.out.println("Number of Subjects: " + S3.nos);
-        // S3.study();
-        // S3.sleep();
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    void showDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+class Student extends Person {
+    String course;
+
+    Student(String name, int age, String course) {
+        super(name, age);
+        this.course = course;
+    }
+
+    void study() {
+        System.out.println(name + " is studying " + course);
+    }
+
+    @Override
+    void showDetails() {
+        super.showDetails();
+        System.out.println("Course: " + course);
     }
 }
