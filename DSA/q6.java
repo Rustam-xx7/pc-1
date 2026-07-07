@@ -1,6 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
@@ -11,6 +12,7 @@ import java.util.LinkedList;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.HashSet;
+import java.util.HashMap;
 
 public class q6 {
     public static void main(String[] args) {
@@ -163,5 +165,43 @@ public class q6 {
         set.retainAll(set2); // intersection of two sets
         System.out.println("Intersection of HashSet and HashSet2: " + set);
         System.out.println(set.containsAll(set2));
+
+
+        System.out.println("");
+        System.out.println("");
+
+        // Map -> key value pair
+
+        Map<String, String> map = new HashMap<>();// hashmap -> O(1) , linkedhashmap -> O(n) , treemap -> O(log n)
+
+        // Insertion
+        map.put("in", "India");
+        map.put("us", "United States");
+        map.put("uk", "United Kingdom");
+
+        System.out.println("Map: " + map);
+
+        Map<String, String> map2 = new HashMap<>();
+        map2.put("br", "Brazil");
+        System.out.println("Map2: " + map2);
+        map.putAll(map2);
+        System.out.println("Map after putAll: " + map);
+        // deletion
+        map.remove("us");
+        System.out.println("Map after removal: " + map);
+
+        Set<String> keys = map.keySet();
+        System.out.println("Keys in the map: " + keys);
+
+        Collection<String> values = map.values();
+        System.out.println("Values in the map: " + values);
+
+        Set<Map.Entry<String, String>> entries = map.entrySet();
+        System.out.println("Entries in the map: " + entries);
+
+        // For iteration
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
     }
 }
