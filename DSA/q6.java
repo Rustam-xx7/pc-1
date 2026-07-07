@@ -1,10 +1,16 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
 import java.util.Stack;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Collections;
+import java.util.Deque;
+import java.util.HashSet;
 
 public class q6 {
     public static void main(String[] args) {
@@ -88,7 +94,74 @@ public class q6 {
         System.out.println("Stack after popping: " + st);
         System.out.println("Top element: " + st.peek());
         System.out.println("Stack searching 12: " + st.search(12));
-        System.out.println("Stack searching 10: " + st.search(10)); // stack search from top . and give counting from 1 from top .
+        System.out.println("Stack searching 10: " + st.search(10)); // stack search from top . and give counting from 1
+                                                                    // from top .
 
+        System.out.println("");
+        System.out.println("");
+
+        // Queue
+
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(1);
+        queue.add(12);
+        queue.offer(23); // for better error handling we will use offer instead of add method .
+        System.out.println("Queue: " + queue);
+
+        System.out.println("Removed element: " + queue.poll());
+        System.out.println("Queue after removing: " + queue);
+        System.out.println("Head of the queue: " + queue.peek());
+
+        // Deque
+
+        Deque<Integer> q2 = new ArrayDeque<>();
+        q2.offer(2);
+        q2.offerFirst(11);
+        q2.offerLast(40);
+        System.out.println("Deque: " + q2);
+        System.out.println("Removed first element: " + q2.pollFirst());
+        System.out.println("Size of Deque: " + q2.size());
+
+        // PriorityQueue
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        // Default priority behaviour -> Integers -> less value higher priority -> min
+        // heap
+        pq.offer(40);
+        pq.offer(10);
+        pq.offer(30);
+        pq.offer(20);
+        System.out.println("Priority Queue: " + pq);
+
+        System.out.println("Removed element: " + pq.poll());
+        System.out.println("Removed element: " + pq.poll());
+        System.out.println("Priority Queue after removing: " + pq);
+        System.out.println("Head of the Priority Queue: " + pq.peek());
+
+        // HashSet
+
+        // HashSet -> O(1)
+        // LinkedHashSet -> O(n)
+        // TreeSet -> BST ->  O(log n)
+
+        Set<Integer> set = new HashSet<>();
+        set.add(10);
+        set.add(10);
+        set.add(20);
+        set.add(20);
+        set.add(30);
+        set.add(30);
+
+        Set<Integer> set2 = new HashSet<>(); // to preserve the order use Linkedhashset . for sorted order use Treeset.
+        set2.add(100);
+        set2.add(20);
+        set2.add(30);
+        set2.add(200);
+
+        System.out.println("HashSet: " + set);
+        System.out.println("HashSet2: " + set2);
+        set.retainAll(set2); // intersection of two sets
+        System.out.println("Intersection of HashSet and HashSet2: " + set);
+        System.out.println(set.containsAll(set2));
     }
 }
