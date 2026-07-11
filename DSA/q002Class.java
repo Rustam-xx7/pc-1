@@ -1,4 +1,4 @@
-public class q2Class {
+public class q002Class {
     // Attributes
     public int id;
     public String name;
@@ -15,12 +15,12 @@ public class q2Class {
     }
 
     // Default Constructor
-    public q2Class() {
+    public q002Class() {
         System.out.println("Default Constructor called.");
     }
 
     // Parameterized Constructor
-    public q2Class(int id, String name, int age, int nos ,String gf ) {
+    public q002Class(int id, String name, int age, int nos ,String gf ) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -30,7 +30,7 @@ public class q2Class {
     }
 
     // Copy Constructor
-    public q2Class(q2Class otherObj) {
+    public q002Class(q002Class otherObj) {
         this.id = otherObj.id;
         this.name = otherObj.name;
         this.age = otherObj.age;

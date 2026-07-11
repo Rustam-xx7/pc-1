@@ -14,7 +14,7 @@ import java.util.Deque;
 import java.util.HashSet;
 import java.util.HashMap;
 
-public class q6 {
+public class q006 {
     public static void main(String[] args) {
 
         // List or Collection -> interface , we cant create object.

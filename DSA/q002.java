@@ -1,4 +1,4 @@
-public class q2 {
+public class q002 {
     public static void main(String[] args) {
         Student s = new Student("John", 20, "Computer Science");
         s.showDetails();

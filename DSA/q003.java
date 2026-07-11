@@ -1,8 +1,8 @@
 // inheritance 
 
-public class q3 {
+public class q003 {
     public static void main(String[] args) {
-        q3child car = new q3child("Toyota", "Camaro", 4 , 5 , "black");
+        q003child car = new q003child("Toyota", "Camaro", 4 , 5 , "black");
         car.startEng();
         car.startAc();
         car.stopEng();

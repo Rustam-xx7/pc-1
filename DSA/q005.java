@@ -90,7 +90,7 @@ class Crow implements Bird {
     }
 }
 
-public class q5 {
+public class q005 {
 
     public static void doBirdStuff(Bird b) { // we can pass any bird object here / Polymorphism
         b.fly();

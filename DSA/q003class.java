@@ -1,11 +1,11 @@
-public class q3class {
+public class q003class {
     public String name;
     public String model;
     public int noOfTyers;
 
 
     // parameterized constructor
-    public q3class(String name, String model, int noOfTyers) {
+    public q003class(String name, String model, int noOfTyers) {
         this.name = name;
         this.model = model;
         this.noOfTyers = noOfTyers;

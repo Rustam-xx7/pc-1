@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
-public class q7 {
+public class q007 {
     public static void main(String[] args) {
         List<Student> students = new ArrayList<>();
         students.add(new Student("Alice", 20, 60));

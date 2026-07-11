@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class q9 {
+public class q009 {
 
     static double getAvg(int[] arr) { // O(n)
         double sum = 0;

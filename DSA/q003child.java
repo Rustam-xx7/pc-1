@@ -1,9 +1,9 @@
-public class q3child extends q3class { // child class
+public class q003child extends q003class { // child class
     public int noOfDoors;
     public String color;
 
     // parameterized constructor
-    q3child(String name, String model, int noOfTyers, int noOfDoors, String color) {
+    q003child(String name, String model, int noOfTyers, int noOfDoors, String color) {
         super(name, model, noOfTyers);
         this.noOfDoors = noOfDoors;
         this.color = color;

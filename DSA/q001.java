@@ -2,7 +2,7 @@
 // n%10 gives the last digit of the number
 // n/10 removes the last digit of the number
 
-public class q1 {
+public class q001 {
 
     static int countDigits(int n) {
         // by /10 we can remove the last digit .

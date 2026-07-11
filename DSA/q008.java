@@ -1,4 +1,4 @@
-public class q8 {
+public class q008 {
     public static void main(String[] args) {
 
         // Bitwise operators , always in binary form .
