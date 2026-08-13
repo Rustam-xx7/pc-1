@@ -83,6 +83,8 @@ public class q011 {
         return -1;
     }
 
+    // Find the pivot index in a array .
+
     static int pivotIndex(int[] arr) {
         int n = arr.length;
         int leftSum[] = new int[n];
@@ -104,12 +106,36 @@ public class q011 {
         return -1;
     }
 
+    // Find the missing element in an array . 1-n number
+
+    static List<Integer> findDisappearedNumbers(int[] nums) {
+        // marking
+
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            int index = Math.abs(nums[i]) - 1;
+            if (nums[index] > 0) {
+                nums[index] = -nums[index];
+            }
+        }
+
+        // travel array, and find for the positive value .
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            if (nums[i] > 0) {
+                result.add(i + 1);
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         int arr[] = { 2, 1, 3, 4, 5 };
         int nums[] = { 2, 1, 3, 5, 4, 7, 6, 8, 9 };
         int nums2[] = { 1, 1, 1, 2, 2, 4, 4, 4, 6, 6, 7, 8, 8, 9 };
         int nums3[] = { 1, 5, 2, 7, 9, 3, 5, 3, 4, 6 };
         int nums4[] = { 1, 7, 3, 6, 5, 6 };
+        int nums5[] = { 1, 4, 4, 5, 2, 2 };
 
         int[] result = findIndex(arr, 6);
         System.out.println("Indices: " + result[0] + ", " + result[1]);
@@ -122,6 +148,8 @@ public class q011 {
 
         System.out.println("First repeated number in the array nums3 is : " + findFirstRepeat(nums3));
 
-        System.out.println("the pivot index for the num4 is : " + pivotIndex(nums4 ));
+        System.out.println("the pivot index for the num4 is : " + pivotIndex(nums4));
+
+        System.out.println("Missing numbers in the array nums5 are : " + findDisappearedNumbers(nums5));
     }
 }
