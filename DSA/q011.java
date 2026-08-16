@@ -129,6 +129,24 @@ public class q011 {
         return result;
     }
 
+    // Find the subarray with the largest sum and return its sum. (Kadane's algorithm)
+
+    static int maxSubArray(int[] nums) {
+        int sum = 0;
+        int max = Integer.MIN_VALUE;
+
+        for(int i = 0; i < nums.length ; i++) {
+            sum += nums[i] ;
+            if (sum > max ) {
+                max = sum;
+            }
+            if (sum < 0) {
+                sum = 0;
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         int arr[] = { 2, 1, 3, 4, 5 };
         int nums[] = { 2, 1, 3, 5, 4, 7, 6, 8, 9 };
@@ -136,6 +154,7 @@ public class q011 {
         int nums3[] = { 1, 5, 2, 7, 9, 3, 5, 3, 4, 6 };
         int nums4[] = { 1, 7, 3, 6, 5, 6 };
         int nums5[] = { 1, 4, 4, 5, 2, 2 };
+        int nums6[] = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
 
         int[] result = findIndex(arr, 6);
         System.out.println("Indices: " + result[0] + ", " + result[1]);
@@ -145,11 +164,13 @@ public class q011 {
                 + result3sum.get(0).get(2));
 
         System.out.println("Length of the unique value array : " + removeDup(nums2));
-
+ 
         System.out.println("First repeated number in the array nums3 is : " + findFirstRepeat(nums3));
 
         System.out.println("the pivot index for the num4 is : " + pivotIndex(nums4));
 
         System.out.println("Missing numbers in the array nums5 are : " + findDisappearedNumbers(nums5));
+        
+        System.out.println("Maximum sum of subarray in nums6 is : " + maxSubArray(nums6));
     }
 }
