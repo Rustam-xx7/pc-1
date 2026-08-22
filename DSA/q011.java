@@ -147,6 +147,28 @@ public class q011 {
         return max;
     }
 
+    // transpose of a 2D matrix 
+
+    static int[][] transpose(int[][] matrix) {
+        
+        if(matrix.length == 0 || matrix == null) {
+            return new int[0][0];
+        }
+
+        //original matrix
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        // for new matrix
+        int[][] transposedMatrix = new int[n][m];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                transposedMatrix[j][i] = matrix[i][j];
+            }
+        }
+        return transposedMatrix;
+    }
+
     public static void main(String[] args) {
         int arr[] = { 2, 1, 3, 4, 5 };
         int nums[] = { 2, 1, 3, 5, 4, 7, 6, 8, 9 };
@@ -155,6 +177,9 @@ public class q011 {
         int nums4[] = { 1, 7, 3, 6, 5, 6 };
         int nums5[] = { 1, 4, 4, 5, 2, 2 };
         int nums6[] = { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
+
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+        int[][] transposedMatrix = transpose(matrix);
 
         int[] result = findIndex(arr, 6);
         System.out.println("Indices: " + result[0] + ", " + result[1]);
@@ -172,5 +197,13 @@ public class q011 {
         System.out.println("Missing numbers in the array nums5 are : " + findDisappearedNumbers(nums5));
         
         System.out.println("Maximum sum of subarray in nums6 is : " + maxSubArray(nums6));
+
+        System.out.println("Transposed matrix: ");
+        for (int i = 0; i < transposedMatrix.length; i++) {
+            for (int j = 0; j < transposedMatrix[0].length; j++) {
+                System.out.print(transposedMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
