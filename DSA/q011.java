@@ -129,15 +129,16 @@ public class q011 {
         return result;
     }
 
-    // Find the subarray with the largest sum and return its sum. (Kadane's algorithm)
+    // Find the subarray with the largest sum and return its sum. (Kadane's
+    // algorithm)
 
     static int maxSubArray(int[] nums) {
         int sum = 0;
         int max = Integer.MIN_VALUE;
 
-        for(int i = 0; i < nums.length ; i++) {
-            sum += nums[i] ;
-            if (sum > max ) {
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            if (sum > max) {
                 max = sum;
             }
             if (sum < 0) {
@@ -147,15 +148,15 @@ public class q011 {
         return max;
     }
 
-    // transpose of a 2D matrix 
+    // transpose of a 2D matrix
 
     static int[][] transpose(int[][] matrix) {
-        
-        if(matrix.length == 0 || matrix == null) {
+
+        if (matrix.length == 0 || matrix == null) {
             return new int[0][0];
         }
 
-        //original matrix
+        // original matrix
         int m = matrix.length;
         int n = matrix[0].length;
 
@@ -167,6 +168,29 @@ public class q011 {
             }
         }
         return transposedMatrix;
+    }
+
+    // Rotate a 2D matrix by 90 degrees clockwise
+
+    static int[][] rotate(int[][] matrix) {
+
+        if (matrix.length == 0 || matrix == null) {
+            return new int[0][0];
+        }
+
+        int i = matrix.length;
+        int j = matrix[0].length;
+
+        int[][] rotatedMatrix = new int[j][i];
+
+        for (int y = 0; y < j; y++) {
+            for (int x = 0; x < i; x++) {
+                rotatedMatrix[y][i - x - 1] = matrix[x][y];
+            }
+        }
+
+        return rotatedMatrix;
+
     }
 
     public static void main(String[] args) {
@@ -189,19 +213,28 @@ public class q011 {
                 + result3sum.get(0).get(2));
 
         System.out.println("Length of the unique value array : " + removeDup(nums2));
- 
+
         System.out.println("First repeated number in the array nums3 is : " + findFirstRepeat(nums3));
 
         System.out.println("the pivot index for the num4 is : " + pivotIndex(nums4));
 
         System.out.println("Missing numbers in the array nums5 are : " + findDisappearedNumbers(nums5));
-        
+
         System.out.println("Maximum sum of subarray in nums6 is : " + maxSubArray(nums6));
 
         System.out.println("Transposed matrix: ");
         for (int i = 0; i < transposedMatrix.length; i++) {
             for (int j = 0; j < transposedMatrix[0].length; j++) {
                 System.out.print(transposedMatrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("Rotated matrix: ");
+        int[][] rotatedMatrix = rotate(matrix);
+        for (int i = 0; i < rotatedMatrix.length; i++) {
+            for (int j = 0; j < rotatedMatrix[0].length; j++) {
+                System.out.print(rotatedMatrix[i][j] + " ");
             }
             System.out.println();
         }
