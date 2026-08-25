@@ -193,6 +193,54 @@ public class q011 {
 
     }
 
+    // spiral print of a 2D matrix
+
+    static List<Integer> spiralPrint(int[][] matrix) {
+
+        List<Integer> result = new ArrayList<>();
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int startingRow = 0;
+        int startingCol = 0;
+        int endingRow = m - 1;
+        int endingCol = n - 1;
+
+        while (startingRow <= endingRow && startingCol <= endingCol) {
+            // starting row , left to right
+            for (int j = startingCol; j <= endingCol; j++) {
+                result.add(matrix[startingRow][j]);
+            }
+            startingRow++;
+
+            // ending col , top to bottom
+            for (int i = startingRow; i <= endingRow; i++) {
+                result.add(matrix[i][endingCol]);
+            }
+            endingCol--;
+
+            // ending row , right to left
+            if (startingRow <= endingRow) {
+                for (int j = endingCol; j >= startingCol; j--) {
+                    result.add(matrix[endingRow][j]);
+                }
+            }
+
+            endingRow--;
+
+            // starting col , bottom to top
+            if (startingCol <= endingCol) {
+
+                for (int i = endingRow; i >= startingRow; i--) {
+                    result.add(matrix[i][startingCol]);
+                }
+                startingCol++;
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         int arr[] = { 2, 1, 3, 4, 5 };
         int nums[] = { 2, 1, 3, 5, 4, 7, 6, 8, 9 };
@@ -238,5 +286,7 @@ public class q011 {
             }
             System.out.println();
         }
+
+        System.out.println("Spiral print of the matrix: " + spiralPrint(matrix));
     }
 }
