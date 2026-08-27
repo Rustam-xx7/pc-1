@@ -38,6 +38,26 @@ public class q012 {
         }
     }
 
+    //Insertion Sort
+
+    static void insertionSort(int arr[]) {
+        int n = arr.length;
+        for(int i = 1; i < n; i++) {
+            int curr = i;
+            int prev = i - 1;
+            int currValue = arr[curr];
+
+            // shifting of the prev
+            while (prev >= 0 && currValue < arr[prev]) {
+                arr[prev + 1] = arr[prev];
+                prev--;
+            }
+
+            // place the current value
+            arr[prev + 1] = currValue;
+        }
+    }
+
     //Print the array
     static void printArray(int arr[]) {
         for(int i = 0; i < arr.length; i++) {
@@ -49,7 +69,8 @@ public class q012 {
 
         int arr[] = { 2, 1, 3, 5, 4 };
         // bubbleSort(arr);
-        selectionSort(arr);
+        // selectionSort(arr);
+        insertionSort(arr);
         printArray(arr);
         
     }
