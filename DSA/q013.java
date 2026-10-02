@@ -227,13 +227,15 @@ public class q013 {
         double factor = 1;
         int totalDecimalPlaces = 3;
 
-        // ek ek round mein ek ek karke factor 0.1, 0.01, 0.001 hoga . menas factor bar bar change hoga.
-        for( int round = 1 ; round <= totalDecimalPlaces ; round++ ) {
+        // ek ek round mein ek ek karke factor 0.1, 0.01, 0.001 hoga . menas factor bar
+        // bar change hoga.
+        for (int round = 1; round <= totalDecimalPlaces; round++) {
             factor = factor / 10;
 
             for (int i = 1; i <= 9; i++) {
-                // bar bar factot ko add karke check kiya jayega for possible ans. 9 bar add kiya ja raha hai for 0.1 to 0.9 ,
-                double newAns = ans + factor ;
+                // bar bar factot ko add karke check kiya jayega for possible ans. 9 bar add
+                // kiya ja raha hai for 0.1 to 0.9 ,
+                double newAns = ans + factor;
 
                 if (newAns * newAns <= m) {
                     ans = newAns;
@@ -246,6 +248,68 @@ public class q013 {
         }
 
         return ans;
+    }
+
+    // Book alocation problem
+
+    static boolean isValid(int[] arr, int k, int maxPages) {
+        // check whether maxPages is a valid ans or not
+        // need a page variable to calculate no of pages
+        int pages = 0;
+        // no of student count
+        int studentCount = 1;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (pages + arr[i] <= maxPages) {
+                // current book can be assigned
+                pages = pages + arr[i];
+            } else {
+                studentCount++;
+                // student count cross value of k then it is not valid
+                if(studentCount > k || arr[i] > maxPages ) {
+                    return false ;
+                } else {
+                    pages = 0;
+                    pages = pages + arr[i];
+                }
+            }
+        }
+
+        return true;
+    }
+
+    static int minthemax( int arr[] , int k) {
+
+        // if total number of books is less than number of studetns then return -1;
+        if(arr.length < k ) {
+            return ans = -1;
+        }
+
+        int n = arr.length;
+        int sum = 0;
+        int s = 1;
+
+        for (int i = 0; i < n ; i++){
+            sum = sum + arr[i];
+        }
+
+        int e = sum ;
+
+        int ans = -1;
+
+        while( s <= e ) {
+            int mid = s + (e - s)/2;
+            
+            if(isValid(arr , k , mid)) {
+                ans = mid; // store the ans
+                e = mid - 1; // move left , to find more smaller valid ans
+            } else {
+                s = mid + 1; // move right , the mid cant fit all the books pages ,
+            }
+        }
+
+        return ans ;
+
     }
 
     public static void main(String[] args) {
@@ -277,6 +341,10 @@ public class q013 {
         System.out.println("the square root of the number is : " + squareRoot(56));
         // find the perfect square root of a number with three decimal places
         System.out.println("the perfect square root of the number is : " + perfectSquareRoot(56.0));
+
+        // book allcation problem 
+        int[] books = { 10 , 20 ,30 , 40 , 50 ,55};
+        System.out.println("the minimum of maximum pages asigned to a student is : " + minthemax(books, 2) ); 
     }
 
 }
