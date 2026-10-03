@@ -282,7 +282,7 @@ public class q013 {
 
         // if total number of books is less than number of studetns then return -1;
         if(arr.length < k ) {
-            return ans = -1;
+            return -1;
         }
 
         int n = arr.length;
@@ -310,6 +310,40 @@ public class q013 {
 
         return ans ;
 
+    }
+
+    // Painter's Partition problem
+
+    static int paintersproblem(int[] arr , int k) {
+
+        // if numbr of board is less then number of painters then return -1
+        if(arr.length < k) {
+            return -1;
+        }
+        int n = arr.length;
+        int s = 1;
+        int sum = 0;
+        for ( int i = 0; i < n; i++) {
+            sum = sum + arr[i];
+        }
+
+        int e = sum ;
+        int ans = -1;
+
+        while ( s <= e ) {
+            int m = s + (e - s)/2 ;
+
+            if (isValid(arr, k, m)) {
+                // true , mid is valid then store it and move left
+                ans = m;
+                e = m - 1; 
+            } else {
+                // false then move right , go for higher value
+                s = m + 1;
+            }
+        }
+
+        return ans;
     }
 
     public static void main(String[] args) {
@@ -345,6 +379,10 @@ public class q013 {
         // book allcation problem 
         int[] books = { 10 , 20 ,30 , 40 , 50 ,55};
         System.out.println("the minimum of maximum pages asigned to a student is : " + minthemax(books, 2) ); 
+
+        // Painter's Prtition Problem
+        int[] boards = {10 , 20 , 30 , 40};
+        System.out.println("The minimum time required to cmplete painting all the boards : " + paintersproblem(boards, 2));
     }
 
 }
