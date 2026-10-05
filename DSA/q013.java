@@ -345,6 +345,69 @@ public class q013 {
 
         return ans;
     }
+    
+    // Selection Sort
+
+    static int[] selectionSort(int arr[]) {
+        int n = arr.length;
+        //Outer loop
+        for(int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            // inner loop to search minimum number
+            for(int j = i + 1; j < n; j++) {
+                if(arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            // swap the minIndex vlaue with i 
+            int temp = arr[i] ;
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+
+        }
+
+        return arr;
+    }
+
+    //Aggressive cows problem , place the cows such that the min distance between two cow will be max
+
+    // check is the min distance is valid or not 
+    static boolean cowDistanceValid(int mid , int arr[] , int k) {
+        int count = 1;
+        int lastPs = arr[0];
+        for(int i = 1; i < arr.length; i++) {
+            if(arr[i] - lastPs >= mid) {
+                count++;
+                lastPs = arr[i];
+            }
+        }
+
+        if(count >= k){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    static int cow(int arr[] ,int k) {
+        int newarr[] = selectionSort(arr);
+        int s = 0;
+        int e = newarr[newarr.length - 1] - newarr[0];
+        int ans = -1;
+
+        while ( s <= e ) {
+            int mid = s + (e - s)/2;
+
+            if(cowDistanceValid(mid , newarr , k)) {
+                ans = mid;
+                s = mid + 1;
+            } else {
+                e = mid - 1;
+            }
+        }
+
+        return ans ;
+    }
 
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3, 4, 4, 4, 4, 5, 6, 7, 8, 9 };
@@ -383,6 +446,10 @@ public class q013 {
         // Painter's Prtition Problem
         int[] boards = {10 , 20 , 30 , 40};
         System.out.println("The minimum time required to cmplete painting all the boards : " + paintersproblem(boards, 2));
+
+        // Aggressive cows problem
+        int[] stalls = { 1, 2, 4, 8, 9 };
+        System.out.println("The maximum distance between two cows is : " + cow(stalls, 3));
     }
 
 }
