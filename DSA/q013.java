@@ -266,8 +266,8 @@ public class q013 {
             } else {
                 studentCount++;
                 // student count cross value of k then it is not valid
-                if(studentCount > k || arr[i] > maxPages ) {
-                    return false ;
+                if (studentCount > k || arr[i] > maxPages) {
+                    return false;
                 } else {
                     pages = 0;
                     pages = pages + arr[i];
@@ -278,10 +278,10 @@ public class q013 {
         return true;
     }
 
-    static int minthemax( int arr[] , int k) {
+    static int minthemax(int arr[], int k) {
 
         // if total number of books is less than number of studetns then return -1;
-        if(arr.length < k ) {
+        if (arr.length < k) {
             return -1;
         }
 
@@ -289,18 +289,18 @@ public class q013 {
         int sum = 0;
         int s = 1;
 
-        for (int i = 0; i < n ; i++){
+        for (int i = 0; i < n; i++) {
             sum = sum + arr[i];
         }
 
-        int e = sum ;
+        int e = sum;
 
         int ans = -1;
 
-        while( s <= e ) {
-            int mid = s + (e - s)/2;
-            
-            if(isValid(arr , k , mid)) {
+        while (s <= e) {
+            int mid = s + (e - s) / 2;
+
+            if (isValid(arr, k, mid)) {
                 ans = mid; // store the ans
                 e = mid - 1; // move left , to find more smaller valid ans
             } else {
@@ -308,35 +308,35 @@ public class q013 {
             }
         }
 
-        return ans ;
+        return ans;
 
     }
 
     // Painter's Partition problem
 
-    static int paintersproblem(int[] arr , int k) {
+    static int paintersproblem(int[] arr, int k) {
 
         // if numbr of board is less then number of painters then return -1
-        if(arr.length < k) {
+        if (arr.length < k) {
             return -1;
         }
         int n = arr.length;
         int s = 1;
         int sum = 0;
-        for ( int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             sum = sum + arr[i];
         }
 
-        int e = sum ;
+        int e = sum;
         int ans = -1;
 
-        while ( s <= e ) {
-            int m = s + (e - s)/2 ;
+        while (s <= e) {
+            int m = s + (e - s) / 2;
 
             if (isValid(arr, k, m)) {
                 // true , mid is valid then store it and move left
                 ans = m;
-                e = m - 1; 
+                e = m - 1;
             } else {
                 // false then move right , go for higher value
                 s = m + 1;
@@ -345,22 +345,22 @@ public class q013 {
 
         return ans;
     }
-    
+
     // Selection Sort
 
     static int[] selectionSort(int arr[]) {
         int n = arr.length;
-        //Outer loop
-        for(int i = 0; i < n - 1; i++) {
+        // Outer loop
+        for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
             // inner loop to search minimum number
-            for(int j = i + 1; j < n; j++) {
-                if(arr[j] < arr[minIndex]) {
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
                     minIndex = j;
                 }
             }
-            // swap the minIndex vlaue with i 
-            int temp = arr[i] ;
+            // swap the minIndex vlaue with i
+            int temp = arr[i];
             arr[i] = arr[minIndex];
             arr[minIndex] = temp;
 
@@ -369,36 +369,37 @@ public class q013 {
         return arr;
     }
 
-    //Aggressive cows problem , place the cows such that the min distance between two cow will be max
+    // Aggressive cows problem , place the cows such that the min distance between
+    // two cow will be max
 
-    // check is the min distance is valid or not 
-    static boolean cowDistanceValid(int mid , int arr[] , int k) {
+    // check is the min distance is valid or not
+    static boolean cowDistanceValid(int mid, int arr[], int k) {
         int count = 1;
         int lastPs = arr[0];
-        for(int i = 1; i < arr.length; i++) {
-            if(arr[i] - lastPs >= mid) {
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] - lastPs >= mid) {
                 count++;
                 lastPs = arr[i];
             }
         }
 
-        if(count >= k){
+        if (count >= k) {
             return true;
         } else {
             return false;
         }
     }
 
-    static int cow(int arr[] ,int k) {
+    static int cow(int arr[], int k) {
         int newarr[] = selectionSort(arr);
         int s = 0;
         int e = newarr[newarr.length - 1] - newarr[0];
         int ans = -1;
 
-        while ( s <= e ) {
-            int mid = s + (e - s)/2;
+        while (s <= e) {
+            int mid = s + (e - s) / 2;
 
-            if(cowDistanceValid(mid , newarr , k)) {
+            if (cowDistanceValid(mid, newarr, k)) {
                 ans = mid;
                 s = mid + 1;
             } else {
@@ -406,7 +407,62 @@ public class q013 {
             }
         }
 
-        return ans ;
+        return ans;
+    }
+
+    // EKO SPOJ problem , find the max height of the tree such that the total wood
+    // collected is greater than or equal to m
+
+    static boolean isHightValid(int[] arr, int mid, int m) {
+        // arr er every elements theke mid - kore check korte hobe m er theke greater ki
+        // na
+
+        int totalTree = 0;
+        for (int i = 0; i < arr.length; i++) {
+            // if the tree is greater than mid then only add the wood value to totalTree
+            if (arr[i] > mid) {
+                totalTree = totalTree + (arr[i] - mid);
+
+            }
+        }
+
+        if (totalTree >= m) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    static int maxHightofTree(int[] trees, int m) {
+        // arr of hight starts from 0 to max length in the given arr
+        int n = trees.length;
+        int s = 0;
+
+        int maxi = -1;
+        for (int i = 0; i < n; i++) {
+            if (trees[i] > maxi) {
+                maxi = trees[i];
+            }
+        }
+
+        int e = maxi;
+        int ans = -1;
+
+        // binary search for the max hight
+        while (s <= e) {
+            int mid = s + (e - s) / 2;
+            if (isHightValid(trees, mid, m)) {
+                // store the ans
+                ans = mid;
+                // move right
+                s = mid + 1;
+            } else {
+                // move left
+                e = mid - 1;
+            }
+        }
+
+        return ans;
     }
 
     public static void main(String[] args) {
@@ -439,17 +495,23 @@ public class q013 {
         // find the perfect square root of a number with three decimal places
         System.out.println("the perfect square root of the number is : " + perfectSquareRoot(56.0));
 
-        // book allcation problem 
-        int[] books = { 10 , 20 ,30 , 40 , 50 ,55};
-        System.out.println("the minimum of maximum pages asigned to a student is : " + minthemax(books, 2) ); 
+        // book allcation problem
+        int[] books = { 10, 20, 30, 40, 50, 55 };
+        System.out.println("the minimum of maximum pages asigned to a student is : " + minthemax(books, 2));
 
         // Painter's Prtition Problem
-        int[] boards = {10 , 20 , 30 , 40};
-        System.out.println("The minimum time required to cmplete painting all the boards : " + paintersproblem(boards, 2));
+        int[] boards = { 10, 20, 30, 40 };
+        System.out.println(
+                "The minimum time required to cmplete painting all the boards : " + paintersproblem(boards, 2));
 
         // Aggressive cows problem
         int[] stalls = { 1, 2, 4, 8, 9 };
         System.out.println("The maximum distance between two cows is : " + cow(stalls, 3));
+
+        // EKO SPOJ problem
+        int[] trees = { 20, 15, 10, 17 };
+        int m = 7;
+        System.out.println("The maximum height of the tree will be : " + maxHightofTree(trees, m));
     }
 
 }
