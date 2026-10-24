@@ -2,6 +2,17 @@
 
 public class q013 {
 
+    // max eliment in an array
+    static int findMax(int[] arr) {
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
     // Binary Search
 
     static int binarySearch(int[] arr, int target) {
@@ -465,6 +476,50 @@ public class q013 {
         return ans;
     }
 
+    // Roti Paratha SPOJ problem , 
+    // n number of paratha to be made , m number of cooks , arr[r] is the rank of the cooks , nr  time taken by each cook to make nth paratha . first paratha take r , 2nd paratha take 2*r.... 
+
+
+    static boolean isParathaTimeValid(int[] arr, int n, int m, int mid) {
+        // check whether the time taken by all cooks to make n parathas is less than or equal to mid
+        int totalParatha = 0;
+        for (int i = 0; i < m; i++) {
+            int timeTaken = 0;
+            int j = 1;
+            while (timeTaken + j * arr[i] <= mid) {
+                timeTaken += j * arr[i];
+                totalParatha++;
+                j++;
+            }
+        }
+        return totalParatha >= n;
+    }
+
+    static int minTimeForParatha(int[] arr, int n, int m) {
+        // range of time for making all parathas ,
+        // heighest rank
+        int maxRank = findMax(arr);
+        int s = 0;
+        int e = maxRank * n * (n + 1) / 2; // maximum time taken by the slowest cook to make all parathas
+        int ans = -1;
+
+        while ( s <= e ) {
+            int mid = s + (e - s) / 2;
+
+            if (isParathaTimeValid(arr, n, m, mid)) {
+                ans = mid;
+                // move left
+                e = mid - 1;
+            } else {
+                // move right
+                s = mid + 1;
+            }
+        }
+        return ans;
+    }
+
+
+
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3, 4, 4, 4, 4, 5, 6, 7, 8, 9 };
         int[] arr2 = { 0, 2, 5, 3, 1 };
@@ -512,6 +567,10 @@ public class q013 {
         int[] trees = { 20, 15, 10, 17 };
         int m = 7;
         System.out.println("The maximum height of the tree will be : " + maxHightofTree(trees, m));
+
+        // Roti Paratha SPOJ problem
+        int[] cooks = { 1, 2, 3, 4 };
+        System.out.println("The minimum time required to make all parathas is : " + minTimeForParatha(cooks, 10, 4));
     }
 
 }
