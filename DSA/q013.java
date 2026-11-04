@@ -475,7 +475,7 @@ public class q013 {
 
         return ans;
     }
-
+ 
     // Roti Paratha SPOJ problem , 
     // n number of paratha to be made , m number of cooks , arr[r] is the rank of the cooks , nr  time taken by each cook to make nth paratha . first paratha take r , 2nd paratha take 2*r.... 
 
