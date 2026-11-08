@@ -53,11 +53,11 @@ public class q015 {
 
     // retrun the highest repeating alphabate from a string
 
-    static char getMaxOccuringChar ( String s) {
-        int [] freq = new int[26]; // take a 26 length array which represent all the alphabates
+    static char getMaxOccuringChar(String s) {
+        int[] freq = new int[26]; // take a 26 length array which represent all the alphabates
 
         // traverce over the string and update the freq of that char by +1
-        for(int i = 0; i < s.length() ; i++) {
+        for (int i = 0; i < s.length(); i++) {
             char currentChar = s.charAt(i);
             freq[currentChar - 'a']++;
         }
@@ -66,36 +66,38 @@ public class q015 {
         char ans = 'a';
 
         // traverce over the alphabate array and find the max occr character
-        for (int i = 0; i < freq.length; i++){
-            if(freq[i] > maxFrq) {
+        for (int i = 0; i < freq.length; i++) {
+            if (freq[i] > maxFrq) {
                 maxFrq = freq[i];
-                ans = (char)(i + 'a');
+                ans = (char) (i + 'a');
             }
         }
 
         return ans;
     }
 
-    // we have a main string and a part string , remove the all occurance of the part string from the main string
+    // we have a main string and a part string , remove the all occurance of the
+    // part string from the main string
 
-    static String removePartString (String s, String p){
-        // jb tk part exist karta hai do the same 
-         while(s.contains(p)){
+    static String removePartString(String s, String p) {
+        // jb tk part exist karta hai do the same
+        while (s.contains(p)) {
             // serch for the part in side s
             int index = s.indexOf(p);
-            // create a new string by merging the left and right part of the string 
+            // create a new string by merging the left and right part of the string
             s = s.substring(0, index) + s.substring(index + p.length());
-         }
+        }
 
-         return s;
+        return s;
     }
 
-    // there is two string s1 and s2 , we have to check if s2 has any permutation of s1 or not. return true or false.
+    // there is two string s1 and s2 , we have to check if s2 has any permutation of
+    // s1 or not. return true or false.
 
     // to compare thre freq tables
     static boolean compareFreq(int[] count1, int[] count2) {
-        for( int i = 0; i < 26; i++){
-            if(count1[i] != count2[i]){
+        for (int i = 0; i < 26; i++) {
+            if (count1[i] != count2[i]) {
                 return false;
             }
         }
@@ -105,16 +107,16 @@ public class q015 {
 
     static boolean checkInclusion(String s1, String s2) {
         // basic check for that s2 contains all the char of s1
-        if(s1.length() > s2.length()) {
+        if (s1.length() > s2.length()) {
             return false;
         }
 
         // s1 er freq table ready korte hobe
         int count1[] = new int[26];
-        for(int i = 0; i < s1.length(); i++){
+        for (int i = 0; i < s1.length(); i++) {
             char ch = s1.charAt(i);
             int index = ch - 'a';
-            count1[index]++; 
+            count1[index]++;
         }
 
         // start the window index
@@ -122,19 +124,19 @@ public class q015 {
         int windowLength = s1.length();
         int count2[] = new int[26];
 
-        //first window freq table
-        for(iw = 0; iw < windowLength; iw++) {
+        // first window freq table
+        for (iw = 0; iw < windowLength; iw++) {
             char ch = s2.charAt(iw);
             int index = ch - 'a';
             count2[index]++;
         }
 
-        if(compareFreq(count1, count2) == true) {
+        if (compareFreq(count1, count2) == true) {
             return true;
         } else {
             // both the freq tables are diff
             // process for the remaining windows
-            while(iw < s2.length()){
+            while (iw < s2.length()) {
                 // iw is already on the new char just after the window ,
                 // add the new char
                 char ch = s2.charAt(iw);
@@ -146,7 +148,7 @@ public class q015 {
                 int oldIndex = oldCh - 'a';
                 count2[oldIndex]--;
                 // again compare the count1 and count2
-                if(compareFreq(count1, count2)){
+                if (compareFreq(count1, count2)) {
                     return true;
                 } else {
                     iw++;
@@ -157,14 +159,70 @@ public class q015 {
         return false;
     }
 
+    // remove the adjacent duplicate from the string again and again
+
+    static String removeAdjecentDuplicate(String str) {
+        StringBuilder ans = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i); // current character
+
+            // check right most character of the ans is same or not 
+            if (ans.length() > 0 && ans.charAt(ans.length() - 1) == ch) {
+                // remove the right most character
+                ans.deleteCharAt(ans.length() - 1);
+            } else {
+                // add the current character
+                ans.append(ch);
+            }
+
+        }
+
+        return ans.toString();
+    }
+
+    // compress the string
+
+    static int compress(char[] chars) {
+        int readIndex = 0;
+        int writeIndex = 0;
+
+        // run a loop while the readIndex reach the last
+        while(readIndex < chars.length) {
+            char currentChar = chars[readIndex];
+            int count = 0;
+
+            //count the for the same characters
+            while(readIndex < chars.length && currentChar == chars[readIndex]){
+                count++;
+                readIndex++;
+            }
+            // now the readIndex is stoped on the next different character
+
+            //add the current character in the same array
+            chars[writeIndex] = currentChar;
+            writeIndex++;
+            // now insert the count
+            if(count > 1) { // number is a int , and i have to store them in a char array 
+                String countStr = String.valueOf(count); // so convert the number into string first
+                for(char digit: countStr.toCharArray()) { // string se ek ek digit ko uthake writeindex mein ek ek karke store hoga. 
+                    chars[writeIndex] = digit;
+                    writeIndex++;
+                }
+            }
+
+        }
+        // return the length of compress string
+        return writeIndex;
+    }
+
     public static void main(String[] args) {
         // reverse the string word by word
         String s = "the sky is blue  ";
         System.out.println(" the word wise reverse of the string s is : " + reverseWords(s));
 
-        //remove the part string from the main string
+        // remove the part string from the main string
         String s2m = "abxabyabzababw"; // main string
-        String s2p = "ab"; // part string 
+        String s2p = "ab"; // part string
         System.out.println(removePartString(s2m, s2p));
 
         // check for any permutation fo s1 present in s2 or not
@@ -172,5 +230,14 @@ public class q015 {
         String s2 = "eidbaooo";
         System.out.println("any permutation of s1 is present in s2 : " + checkInclusion(s1, s2));
 
+        // remove the adjecent duplicate from a string
+        String s3 = "azxxzy";
+        System.out.println(
+                "After removeing the adjecent duplicates the out put string is : " + removeAdjecentDuplicate(s3));
+
+        //compress the character array
+        char[] array = {'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c', 'c'};
+
+        System.out.println("The length of the compressed array will be : " + compress(array));
     }
 }
