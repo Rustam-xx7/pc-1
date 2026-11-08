@@ -90,15 +90,87 @@ public class q015 {
          return s;
     }
 
+    // there is two string s1 and s2 , we have to check if s2 has any permutation of s1 or not. return true or false.
+
+    // to compare thre freq tables
+    static boolean compareFreq(int[] count1, int[] count2) {
+        for( int i = 0; i < 26; i++){
+            if(count1[i] != count2[i]){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    static boolean checkInclusion(String s1, String s2) {
+        // basic check for that s2 contains all the char of s1
+        if(s1.length() > s2.length()) {
+            return false;
+        }
+
+        // s1 er freq table ready korte hobe
+        int count1[] = new int[26];
+        for(int i = 0; i < s1.length(); i++){
+            char ch = s1.charAt(i);
+            int index = ch - 'a';
+            count1[index]++; 
+        }
+
+        // start the window index
+        int iw = 0;
+        int windowLength = s1.length();
+        int count2[] = new int[26];
+
+        //first window freq table
+        for(iw = 0; iw < windowLength; iw++) {
+            char ch = s2.charAt(iw);
+            int index = ch - 'a';
+            count2[index]++;
+        }
+
+        if(compareFreq(count1, count2) == true) {
+            return true;
+        } else {
+            // both the freq tables are diff
+            // process for the remaining windows
+            while(iw < s2.length()){
+                // iw is already on the new char just after the window ,
+                // add the new char
+                char ch = s2.charAt(iw);
+                int newIndex = ch - 'a';
+                count2[newIndex]++;
+                // remove the old char
+                int oldCharIndex = iw - windowLength;
+                char oldCh = s2.charAt(oldCharIndex);
+                int oldIndex = oldCh - 'a';
+                count2[oldIndex]--;
+                // again compare the count1 and count2
+                if(compareFreq(count1, count2)){
+                    return true;
+                } else {
+                    iw++;
+                }
+            }
+        }
+
+        return false;
+    }
+
     public static void main(String[] args) {
         // reverse the string word by word
         String s = "the sky is blue  ";
         System.out.println(" the word wise reverse of the string s is : " + reverseWords(s));
 
         //remove the part string from the main string
-        String s2 = "abxabyabzababw"; // main string
+        String s2m = "abxabyabzababw"; // main string
         String s2p = "ab"; // part string 
-        System.out.println(removePartString(s2, s2p));
+        System.out.println(removePartString(s2m, s2p));
+
+        // check for any permutation fo s1 present in s2 or not
+        String s1 = "ab";
+        String s2 = "eidbaooo";
+        System.out.println("any permutation of s1 is present in s2 : " + checkInclusion(s1, s2));
 
     }
 }
