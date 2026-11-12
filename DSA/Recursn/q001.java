@@ -47,6 +47,71 @@ public class q001 {
         return ans;
     }
 
+    static void print(int arr[], int i){
+        if(i >= arr.length){
+            return;
+        }
+        print(arr, (i + 1));
+        System.out.println(arr[i] + " ");
+    }
+
+    // find the max eliment in an array with recurstion
+    static void findMax(int arr[], int i, int max){
+        //base case
+        if(i >= arr.length){
+            System.out.println("The max eliment is : " +  max);
+            return ;
+        }
+
+        // processing
+        if(arr[i] > max){
+            max = arr[i];
+        }
+
+        //rc
+        findMax(arr, i+1, max);
+    }
+
+    //linear search on a array by recursion
+    static void linearSearch(int[] arr, int i, int target){
+        //Base case 
+        if(i >= arr.length){
+            System.out.println("Ther target is not present in the array.");
+            return;
+        }
+
+        //Process
+        if(arr[i] == target){
+            System.out.println("Ther integer of the " + target + " is : " + i);
+            return;
+        }
+        
+        //rc
+        linearSearch(arr, i+1, target);
+    }
+
+    //Print the digits with the help of recursion
+    static void printDigits(int n){
+        //base case
+        if(n == 0){
+            System.out.println("");
+            return;
+        }
+
+        
+        
+        //RC for n
+
+        // devide by 10 korle last digit remove hoye jabe
+        printDigits(n/10);
+
+        //Process
+
+        // %10 korle last digit return pabo,
+        int digit = n % 10;
+        System.out.print(digit+" ");
+    }
+
     public static void main(String[] args) {
         // power of 2
         System.out.println(powerOf2(5));
@@ -56,5 +121,20 @@ public class q001 {
 
         // find how many possible way to climb 5th step , 
         System.out.println("the number of possible ways to climb 5th step is : " + climbStairs(5));
+
+        //Print an array with the help of recursion
+        int[] arr = {1,2,3,4,5,6,7};
+        // print(arr, 0);
+
+        // find max eliment with recursion
+        int[] arr2 = {1,4,2,5,8,3,6,7};
+        int maxi = Integer.MIN_VALUE;
+        findMax(arr2, 0, maxi);
+
+        // Linear Search by Recursion
+        linearSearch(arr2, 0, 9);
+
+        //Print the digits using recursion
+        printDigits(420);
     }
-}
+} 
