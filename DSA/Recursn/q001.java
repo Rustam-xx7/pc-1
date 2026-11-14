@@ -2,6 +2,11 @@
 
 package Recursn;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 public class q001 {
 
     // find the power of 2
@@ -108,14 +113,14 @@ public class q001 {
 
         // %10 korle last digit return pabo,
         int digit = n % 10;
-        System.out.println(digit  + " ");
+        System.out.println(digit + " ");
     }
 
     // Binary search using recursion
     static int binarySearch(int[] arr, int s, int e, int target) {
         // Base case
         if (s > e) {
-            return -1 ;
+            return -1;
         }
 
         // process
@@ -133,6 +138,37 @@ public class q001 {
         // RC
         int ans = binarySearch(arr, s, e, target);
 
+        return ans;
+    }
+
+    // subsequence of the string
+
+    static void getAllSubsequences(String s, int index, StringBuilder output, List<String> ans) {
+        if (index >= s.length()) {
+            ans.add(output.toString());
+            return;
+        }
+
+        char ch = s.charAt(index);
+
+        // Include current character
+        output.append(ch);
+        getAllSubsequences(s, index + 1, output, ans);
+
+        // Backtrack
+        output.deleteCharAt(output.length() - 1);
+
+        // Exclude current character
+        getAllSubsequences(s, index + 1, output, ans);
+    }
+
+    static List<String> powerSet(String s) {
+        List<String> ans = new ArrayList<>();
+        StringBuilder output = new StringBuilder();
+        int index = 0;
+
+        getAllSubsequences(s, index, output, ans);
+        Collections.sort(ans);
         return ans;
     }
 
