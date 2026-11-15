@@ -172,6 +172,39 @@ public class q001 {
         return ans;
     }
 
+    //Hourse robber problem : if you rob a house you cant rob the adjacent house
+    // [2,7,9,3,1] ,, let say this are the house and the values are the cash stored in the house 
+    // main idea plot the hole secanrio using recursion
+    // we have to options 1: include the house in robbed, 2: exclude the house in robbed
+
+    static int robbed(int[] nums, int index){
+        //Basecase
+        // if the index go out the array
+        if(index >= nums.length){
+            return 0;
+        }
+
+        //Process
+        // im on the current index house , 
+
+        // if i include the hosue then , add the value and again go for the next house (index+2) and add that next psoibility too
+        int included = nums[index] + robbed(nums, index+2);
+        
+        // if esclude the house then add 0 from that hosue and also add the furthur outcomes from the index+1
+        int excluded = 0 + robbed(nums, index+1);
+
+        // now return the max value from these 
+        int finalAns = Math.max(included, excluded);
+        
+        return finalAns;
+    }
+
+    static int rob(int[] nums) {
+        int index = 0;
+        int ans = robbed(nums, index);
+        return ans;
+    }
+
     public static void main(String[] args) {
         // power of 2
         System.out.println(powerOf2(5));
