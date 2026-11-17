@@ -205,6 +205,42 @@ public class q001 {
         return ans;
     }
 
+    // Coin change problem 2. 
+
+    static int ways(int amount, int[] coins, int index){
+        // base case
+        if(amount == 0){
+            return 1;
+        }
+
+        if(amount < 0){
+            return 0;
+        }
+
+        if(index >= coins.length){
+            return 0;
+        }
+
+        // let say the coin is 5 and the amount is 40 then
+        // 5 ke coin ko include kiya to amount 35 ho jayega and coin vapas same use ho sakta hai
+        
+        int includeAns = ways(amount - coins[index], coins, index);
+
+        // agar currenct coin ko use nahi kiya then , amount change nahi hoga but coin next coin pe chala jayega
+
+        int excludeAns = ways(amount, coins, index + 1);
+
+        int finalAns = includeAns + excludeAns;
+        return finalAns;
+
+    }
+
+    static int change(int amount, int[] coins) {
+        int index = 0;
+        int ans = ways(amount, coins, index);
+        return ans;
+    }
+
     public static void main(String[] args) {
         // power of 2
         System.out.println(powerOf2(5));
@@ -234,5 +270,10 @@ public class q001 {
         int[] arr3 = { 10, 20, 30, 40, 50, 6, 70, 80, 90 };
 
         System.out.println("The index of the 40 is : " + binarySearch(arr3, 0, (arr3.length - 1), 40));
+
+        //coin change problem
+
+        int[] coins = {1,2,5};
+        System.out.println("The possible ways to get the amount 5 with the coins are : " + change(5, coins));
     }
 }
