@@ -241,6 +241,44 @@ public class q001 {
         return ans;
     }
 
+    // Coin Change problem 1.
+
+    static int numofCoin(int[] coins, int amount){
+        //basecase
+        if(amount == 0) {
+            return 0;
+        }
+        if(amount < 0){
+            // if the amount is invalid then return the coin number max value so that it cant be change after adding 1 too
+            return Integer.MAX_VALUE;
+        }
+
+        int mini = Integer.MAX_VALUE;
+
+        // ek amoun ayega , uspe ek ek karke sare coins use karke dekhunga and then jo amoun milega uspe firse recurcive call marunga ,
+        // recurcive call se jo bhi ans ayega ,uske pehle ek coin already use kiya hai so ans mein +1 karke return karunga , 
+        // harbar mini ke sath compare karunga ans milne ke baad
+        for(int coin: coins){
+            // mere pass ek coin mil gaya , ab usko use karna hai pehle
+            int recursionAns = numofCoin(coins, amount - coin);
+            // agar amount - karne ke baad invalid hua then max vlaue return hoga , if not then add 1 and compare with mini
+            if(recursionAns != Integer.MAX_VALUE){
+                int totalCoinUsed = recursionAns + 1;
+                mini = Math.min(mini, totalCoinUsed);
+            }
+        }
+
+        return mini;
+    }
+
+    static int change2(int[] coins, int amount){
+        int ans = numofCoin(coins, amount);
+        if(ans == Integer.MAX_VALUE){
+            return -1;
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
         // power of 2
         System.out.println(powerOf2(5));
@@ -273,7 +311,11 @@ public class q001 {
 
         //coin change problem
 
+        // problem 2
         int[] coins = {1,2,5};
         System.out.println("The possible ways to get the amount 5 with the coins are : " + change(5, coins));
+
+        //problem 1
+        System.out.println("Minimum number of coin required to achive the amount 11 is : " + change2(coins, 11) );
     }
 }
