@@ -279,6 +279,36 @@ public class q001 {
         return ans;
     }
 
+    //MINIMIZE THE DIFFERNECE BETWEEN TAREGT AND CHOSEN ELEMENTS
+    // 2D array , select one element from each row , do sum , find the absolute min diff with the target
+
+    static int findAbsDiffRec(int[][] mat,  int sum , int row, int target ){
+        // Basecase  : when the row >= mat.length , then return | target - sum | ,
+        if( row >= mat.length){
+            // row is invalid , we got the every element sum from the every row
+            return Math.abs(target - sum); 
+        }
+
+        // ek row ke har ek element pe check karenge , har eliment ke regards ans ayega usko mini ke sath compare karke store karlenge min ko
+        int mini = Integer.MAX_VALUE;
+
+        for(int val: mat[row]){
+            int recAns = findAbsDiffRec(mat, sum + val, row + 1, target);
+            mini = Math.min(recAns, mini);
+        }
+
+        // ek row ke har element ke ragrding check hoke min diff agaya mini pe
+        return mini;
+
+    }
+
+    static int findAbsDiff(int[][] mat, int target){
+        int sum = 0;
+        int row = 0;
+        int ans = findAbsDiffRec(mat, sum , row , target );
+        return ans;
+    }
+
     public static void main(String[] args) {
         // power of 2
         System.out.println(powerOf2(5));
@@ -317,5 +347,9 @@ public class q001 {
 
         //problem 1
         System.out.println("Minimum number of coin required to achive the amount 11 is : " + change2(coins, 11) );
+
+        // MINIMIZE THE DIFFERENCE BETWEEN TARGET AND THE SUM OF CHOSEN ELEMENT FROM EACH ROW
+        int[][] mat = {{1,2,3}, {4,5,6},{7,8,9}};
+        System.out.println("The min difference between 13 and elements from each row of mat is : " + findAbsDiff(mat, 13));
     }
 }
