@@ -325,11 +325,7 @@ public class q001 {
         boolean includeAns = solveDivideInTwo(nums, sum + nums[index], totalSum - nums[index], index + 1);
         boolean excludeAns = solveDivideInTwo(nums, sum, totalSum, index + 1);
 
-        if(includeAns || excludeAns){
-            return true;
-        } else {
-            return false;
-        }
+        return includeAns || excludeAns;
     }
 
     static boolean divideInTwo(int[] nums){
@@ -337,6 +333,10 @@ public class q001 {
         int totalSum = 0;
         for(int num : nums){
             totalSum = totalSum + num;
+        }
+
+        if((totalSum & 1) == 1){
+            return false;
         }
         int index = 0;
 
