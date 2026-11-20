@@ -309,6 +309,42 @@ public class q001 {
         return ans;
     }
 
+    //Devide a array in two parts , if the sum of the elements of each part is equal then return true otherwise return false.
+
+    static boolean solveDivideInTwo(int[] nums, int sum , int totalSum ,int index){
+        // Basecase:
+        if(sum == totalSum){
+
+            return true;
+        }
+        // agar invalid index tk pohoch gaya and sum and totalsum same nahi hua then false
+        if(index >= nums.length){
+            return false;
+        }
+
+        boolean includeAns = solveDivideInTwo(nums, sum + nums[index], totalSum - nums[index], index + 1);
+        boolean excludeAns = solveDivideInTwo(nums, sum, totalSum, index + 1);
+
+        if(includeAns || excludeAns){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    static boolean divideInTwo(int[] nums){
+        int sum = 0;
+        int totalSum = 0;
+        for(int num : nums){
+            totalSum = totalSum + num;
+        }
+        int index = 0;
+
+        boolean ans = solveDivideInTwo(nums, sum , totalSum, index);
+
+        return ans;
+    }
+
     public static void main(String[] args) {
         // power of 2
         System.out.println(powerOf2(5));
@@ -351,5 +387,9 @@ public class q001 {
         // MINIMIZE THE DIFFERENCE BETWEEN TARGET AND THE SUM OF CHOSEN ELEMENT FROM EACH ROW
         int[][] mat = {{1,2,3}, {4,5,6},{7,8,9}};
         System.out.println("The min difference between 13 and elements from each row of mat is : " + findAbsDiff(mat, 13));
+
+        // Divide the array in two parts , sum of elements of each part same then return true other wise return false
+        int[] nums = {1,5,11,5};
+        System.out.println("The array nums can be divide into same two parts : " + divideInTwo(nums));
     }
 }
